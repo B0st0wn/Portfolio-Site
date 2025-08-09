@@ -1,7 +1,5 @@
 # 💼 Paul Hanlon — Portfolio & Resume Website
 
-![Site Preview](https://hanlonhouse.us/img/site-preview.png)
-
 A responsive, dark-mode-friendly personal website showcasing my **16+ years of IT experience**, portfolio projects, and professional resume.  
 Built with **HTML, Tailwind CSS, and vanilla JavaScript**, this site is optimized for fast loading, accessibility, and clean UI.
 
