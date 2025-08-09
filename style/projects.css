@@ -1,4 +1,4 @@
-/* Two‑flap (fortune‑teller) inline reveal
+/* Two-flap (fortune-teller) inline reveal
    -------------------------------------- */
 
 .reveal-frame {
@@ -7,6 +7,7 @@
   perspective: 1200px;              /* gives the flap fold some depth */
   border-radius: 0.75rem;
   overflow: hidden;                  /* keep flaps clipped */
+  transform-style: preserve-3d;      /* smoother 3D animation */
 }
 
 /* Flaps cover the content when closed */
@@ -18,10 +19,11 @@
   background: #ffffff;
   transform-origin: center;
   transform: rotateX(0deg);
-  transition: transform 650ms cubic-bezier(.22,.61,.36,1);
+  transition: transform 650ms cubic-bezier(.22,.61,.36,1), opacity 150ms ease;
   will-change: transform;
   z-index: 2;
   box-shadow: 0 1px 0 rgba(0,0,0,.08) inset;
+  backface-visibility: hidden;       /* no weird triangles */
 }
 
 .reveal-frame .flap.top { top: 0; transform-origin: top; }
@@ -64,6 +66,24 @@ html.dark .reveal-frame .flap { background: #0a0a0a; }
   z-index: 3;
 }
 html.dark .reveal-frame::before { background: rgba(255,255,255,.06); }
+.reveal-frame.open::before { opacity: 0; }
 
 /* Prevent layout jump – shows a small closed “panel” instead of empty gap */
 #projects .container { position: relative; }
+
+/* Keep the projects content above the flaps */
+#projects-reveal .reveal-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Flaps vanish entirely after animation */
+#projects-reveal.flaps-gone .flap {
+  display: none;
+}
+
+/* Hide flaps visually during the open animation */
+#projects-reveal.open .flap {
+  opacity: 0;
+  visibility: hidden;
+}
