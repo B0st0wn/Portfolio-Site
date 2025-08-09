@@ -133,10 +133,18 @@
         </div>
     </section>
 
-    <!-- Skills + View Projects trigger -->
-    <section id="skills" class="section py-16 dark:bg-primary bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Technical Skills</h2>
+  <!-- Skills + View Projects trigger -->
+  <section id="skills" class="section py-16 dark:bg-primary bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Technical Skills</h2>
+
+      <div class="text-center mt-4">
+        <!-- IMPORTANT: this ID must match projects.js -->
+        <a id="projects-trigger" href="#projects"
+           class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition">
+          View Projects
+        </a>
+      </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
                 <!-- Start Skills -->
@@ -239,28 +247,19 @@
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-                    <div class="flex justify-between mb-2">
-                        <span class="dark:text-gray-300 text-gray-700">Monitoring &amp; Alerting Systems</span>
-                        <span class="font-medium dark:text-gray-300 text-gray-700">60%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-                        <div class="skill-bar-fill h-2 rounded-full bg-lime-500 transition-all duration-1000 ease-out"
-                            style="width:0" data-width="60%"></div>
-                    </div>
-                </div>
-                <!-- End Skills -->
-
-                <div class="text-center mt-4">
-                    <a id="projects-trigger" href="#projects"
-                        class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition">
-                        View Projects
-                    </a>
-                </div>
-
-            </div>
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Monitoring &amp; Alerting Systems</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">60%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-lime-500 transition-all duration-1000 ease-out" style="width:0" data-width="60%"></div>
+          </div>
         </div>
-    </section>
+        <!-- End Skills -->
+      </div>
+    </div>
+  </section>
 
     <!-- PROJECTS (inline reveal) -->
     <section id="projects" class="section">
