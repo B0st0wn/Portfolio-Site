@@ -1,663 +1,1080 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon.png" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Systems Engineer | Portfolio Site</title>
-  <meta name="description" content="Professional resume of a Systems Engineer with 16 years of IT experience" />
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Systems Engineer | Portfolio Site</title>
+    <meta name="description" content="Professional resume of a Systems Engineer with 16 years of IT experience" />
 
-  <!-- Tailwind + Icons -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- Tailwind + Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-  <!-- Tailwind config -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: "#111111",
-            secondary: "#222222",
-            dark: "#0a0a0a",
-            light: "#f8fafc"
-          }
+    <!-- Tailwind config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#111111",
+                        secondary: "#222222",
+                        dark: "#0a0a0a",
+                        light: "#f8fafc"
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
 
-  <!-- Local CSS for the 2‑flap reveal -->
-  <link rel="stylesheet" href="/style/projects.css"/>
+    <!-- Local CSS for the 2‑flap reveal -->
+    <link rel="stylesheet" href="/style/projects.css" />
 
-  <style>
-    .sticky-nav { position: sticky; top: 0; z-index: 50 }
-    .active-tab { border-bottom: 3px solid; font-weight: 600 }
-    .dark .active-tab { border-color: #ffffff }
-    .light .active-tab { border-color: #000000 }
-    .section { scroll-margin-top: 80px }
-  </style>
+    <style>
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50
+        }
+
+        .active-tab {
+            border-bottom: 3px solid;
+            font-weight: 600
+        }
+
+        .dark .active-tab {
+            border-color: #ffffff
+        }
+
+        .light .active-tab {
+            border-color: #000000
+        }
+
+        .section {
+            scroll-margin-top: 80px
+        }
+    </style>
 </head>
 
 <body class="dark:bg-dark dark:text-gray-200 bg-light text-gray-800 transition-colors duration-300">
 
-  <!-- Sticky Navigation -->
-  <nav class="sticky-nav dark:bg-dark bg-white shadow-lg">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between">
-        <div class="flex space-x-8">
-          <a href="#home" class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link active-tab">
-            <i class="fas fa-home mr-2"></i>Home
-          </a>
-          <a href="#resume" class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link">
-            <i class="fas fa-file-alt mr-2"></i>Resume
-          </a>
-          <a href="#contact" class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link">
-            <i class="fas fa-envelope mr-2"></i>Contact
-          </a>
-        </div>
-        <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
-          <i id="theme-icon" class="fas fa-moon text-xl dark:text-yellow-300 text-gray-700"></i>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Pan & Zoom Lightbox (unchanged) -->
-  <div id="img-lightbox" class="fixed inset-0 z-[110] hidden">
-    <div class="absolute inset-0 bg-black/70" data-close-image></div>
-    <div id="pz-stage" class="absolute inset-6 md:inset-10 rounded-lg bg-black/20 overflow-hidden cursor-grab">
-      <img id="pz-img" alt="Expanded image" class="select-none max-w-none max-h-none pointer-events-none will-change-transform">
-    </div>
-    <button class="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 rounded-full p-2" data-close-image>✕</button>
-  </div>
-
-  <!-- Home -->
-  <section id="home" class="section py-16 dark:bg-dark bg-white">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-          <img src="https://images.creativemarket.com/0.1.0/ps/7468846/1820/1213/m1/fpnw/wm0/img_4955cm-.jpg?1576505994&s=8203b61e48c361620301ba485d18d2e2"
-               alt="Circuit board background representing technical expertise"
-               class="rounded-full border-4 dark:border-gray-700 border-gray-300 shadow-xl w-64 h-64 object-cover">
-        </div>
-        <div class="md:w-2/3 md:pl-12">
-          <h1 class="text-4xl font-bold dark:text-white text-gray-900 mb-4">Paul Halon</h1>
-          <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
-            Computer engineer with 16 years’ experience, specializing in Microsoft Entra identity &amp; access
-            management and endpoint solutions.
-          </p>
-          <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
-            Automation &amp; scripting pro using PowerShell, Python and VBScript. Experienced in SCCM,
-            privilege-management, Symantec Ghost, Dell KACE, Active Directory, Intune, Azure AD, Exchange,
-            Visio and Project.
-          </p>
-          <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
-            Proven troubleshooting skills across hardware, software and networks—with remote support for Windows
-            (client &amp; server), macOS, Linux and mobile platforms.
-          </p>
-          <p class="text-xl dark:text-gray-300 text-gray-700">
-            Outside work: custom PC builds, ham radio &amp; electronics tinkering, dirt biking with family, and life
-            with Aurora, our Border Collie–Pitbull mix.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills + View Projects trigger -->
-  <section id="skills" class="section py-16 dark:bg-primary bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Technical Skills</h2>
-
-      <div class="text-center mt-4">
-        <!-- IMPORTANT: this ID must match projects.js -->
-        <a id="projects-trigger" href="#projects"
-           class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition">
-          View Projects
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-        <!-- Start Skills -->
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Operating Systems</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">90%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-blue-500 transition-all duration-1000 ease-out" style="width:0" data-width="90%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Scripting &amp; Automation</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">90%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-orange-500 transition-all duration-1000 ease-out" style="width:0" data-width="90%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Endpoint &amp; System Management</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">85%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-yellow-500 transition-all duration-1000 ease-out" style="width:0" data-width="85%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Cloud &amp; Identity Management</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-green-500 transition-all duration-1000 ease-out" style="width:0" data-width="80%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Networking &amp; Security</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-red-500 transition-all duration-1000 ease-out" style="width:0" data-width="80%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Endpoint Security &amp; Compliance</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-teal-500 transition-all duration-1000 ease-out" style="width:0" data-width="80%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Patch Management &amp; Compliance</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-amber-500 transition-all duration-1000 ease-out" style="width:0" data-width="80%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Collaboration &amp; Productivity Tools</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">75%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-indigo-500 transition-all duration-1000 ease-out" style="width:0" data-width="75%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Website Design</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">70%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-pink-500 transition-all duration-1000 ease-out" style="width:0" data-width="70%"></div>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
-          <div class="flex justify-between mb-2">
-            <span class="dark:text-gray-300 text-gray-700">Monitoring &amp; Alerting Systems</span>
-            <span class="font-medium dark:text-gray-300 text-gray-700">60%</span>
-          </div>
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div class="skill-bar-fill h-2 rounded-full bg-lime-500 transition-all duration-1000 ease-out" style="width:0" data-width="60%"></div>
-          </div>
-        </div>
-        <!-- End Skills -->
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS (inline reveal) -->
-  <section id="projects" class="section">
-    <div class="container mx-auto px-4">
-
-      <!-- The reveal frame + flaps -->
-      <div id="projects-reveal" class="reveal-frame rounded-xl shadow-xl">
-        <div class="flap top"></div>
-        <div class="flap bottom"></div>
-
-        <div class="reveal-content">
-          <div class="py-12">
-            <h2 class="text-3xl font-bold mb-8">Projects</h2>
-
-            <!-- Work -->
-            <section aria-labelledby="work-projects" class="mb-12">
-              <h3 id="work-projects" class="text-2xl font-bold mb-4">Work</h3>
-              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                  <a href="#" class="block" data-modal-target="#modal-content-intune-m365">
-                    <img loading="lazy" src="https://mssolutions.ca/wp-content/uploads/2023/09/Microsoft-Intune-1024x683.png" alt="Laptop fleet management" class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                    <div class="p-6">
-                      <h4 class="text-xl font-semibold mb-2">Intune &amp; M365 Deployment</h4>
-                      <p class="text-gray-600 dark:text-gray-300">Joined 700 endpoints to Azure AD &amp; deployed Microsoft 365 applications organization-wide.</p>
-                      <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Intune</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Microsoft 365</span>
-                      </div>
-                    </div>
-                  </a>
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav dark:bg-dark bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex space-x-8">
+                    <a href="#home"
+                        class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link active-tab">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="#resume"
+                        class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link">
+                        <i class="fas fa-file-alt mr-2"></i>Resume
+                    </a>
+                    <a href="#contact"
+                        class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
                 </div>
-
-                <div class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                  <a href="#" class="block" data-modal-target="#modal-content-helpdesk-button">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1273&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Support workflow on a workstation" class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                    <div class="p-6">
-                      <h4 class="text-xl font-semibold mb-2">Helpdesk Button (PowerShell GUI)</h4>
-                      <p class="text-gray-600 dark:text-gray-300">One-click support intake that emails tickets with auto-collected diagnostics.</p>
-                      <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">PowerShell</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">WinForms</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Outlook/SMTP</span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                  <a href="#" class="block" data-modal-target="#modal-content-kiosk-upgrade">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Windows deployment in progress" class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                    <div class="p-6">
-                      <h4 class="text-xl font-semibold mb-2">Mass Kiosk Windows 10 → 11 Upgrade</h4>
-                      <p class="text-gray-600 dark:text-gray-300">Automated multi-site kiosk upgrades using Clonezilla imaging pipeline.</p>
-                      <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Clonezilla</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Windows 11</span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            <!-- Home -->
-            <section aria-labelledby="home-projects">
-              <h3 id="home-projects" class="text-2xl font-bold mb-4">Home</h3>
-              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                  <a href="#" class="block" data-modal-target="#modal-content-unraid">
-                    <img loading="lazy" src="http://hanlonhouse.us/img/unraid.png" alt="Unraid server rack" class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                    <div class="p-6">
-                      <h4 class="text-xl font-semibold mb-2">Unraid NAS Monitoring</h4>
-                      <p class="text-gray-600 dark:text-gray-300">Published disk health, network throughput, and VM status to MQTT for Home Assistant dashboards.</p>
-                      <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Unraid</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Python</span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                  <a href="#" class="block" data-modal-target="#modal-content-home-assistant">
-                    <img loading="lazy" src="https://www.home-assistant.io/images/default-social.png" alt="Home Assistant dashboard on tablet" class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                    <div class="p-6">
-                      <h4 class="text-xl font-semibold mb-2">Home Assistant Dashboard</h4>
-                      <p class="text-gray-600 dark:text-gray-300">YAML-mode dashboard with auto-entities for Unraid sensors and two-way audio via go2rtc.</p>
-                      <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Home Assistant</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">YAML</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                  <a href="#" class="block" data-modal-target="#modal-content-pfsense">
-                    <img loading="lazy" src="https://blog.domotz.com/wp-content/uploads/2023/01/pfsense-blog-header.jpg" alt="pfSense firewall device" class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                    <div class="p-6">
-                      <h4 class="text-xl font-semibold mb-2">pfSense VLAN &amp; Firewall</h4>
-                      <p class="text-gray-600 dark:text-gray-300">Designed 5-VLAN network segmentation with reverse proxy for go2rtc and secure Cloudflare tunnel.</p>
-                      <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">pfSense</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">NGINX</span>
-                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Cloudflare</span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div> <!-- /reveal-content -->
-      </div>   <!-- /reveal-frame -->
-
-    </div>
-  </section>
-
-  <!-- Hidden templates for project detail modal -->
-  <div id="project-templates" class="hidden">
-    <div id="modal-content-intune-m365" class="hidden">
-      <div class="space-y-6">
-        <header class="border-b pb-3">
-          <h3 class="text-2xl font-semibold">Intune & Microsoft 365 Deployment</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Seamless fleet onboarding and productivity suite rollout.</p>
-        </header>
-        <section class="grid md:grid-cols-2 gap-6">
-          <div class="space-y-3">
-            <h4 class="font-semibold">Overview</h4>
-            <p>Migrated 700 corporate endpoints to hybrid Azure AD join and enrolled in Intune for centralized device management. Deployed Microsoft 365 applications, configured baseline security policies, and enabled self-service device provisioning.</p>
-            <ul class="list-disc pl-5 text-sm">
-              <li>Hybrid Azure AD join with automatic Intune enrollment</li>
-              <li>Custom compliance policies &amp; conditional access rules</li>
-              <li>Deployment of Office apps via Endpoint Manager</li>
-              <li>User training &amp; post-deployment support</li>
-            </ul>
-          </div>
-          <div class="space-y-3">
-            <h4 class="font-semibold">Stack</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Intune</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Azure AD</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Microsoft 365 Apps</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Endpoint Manager</span>
+                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
+                    <i id="theme-icon" class="fas fa-moon text-xl dark:text-yellow-300 text-gray-700"></i>
+                </button>
             </div>
-          </div>
-        </section>
-      </div>
+        </div>
+    </nav>
+
+    <!-- Pan & Zoom Lightbox (unchanged) -->
+    <div id="img-lightbox" class="fixed inset-0 z-[110] hidden">
+        <div class="absolute inset-0 bg-black/70" data-close-image></div>
+        <div id="pz-stage" class="absolute inset-6 md:inset-10 rounded-lg bg-black/20 overflow-hidden cursor-grab">
+            <img id="pz-img" alt="Expanded image"
+                class="select-none max-w-none max-h-none pointer-events-none will-change-transform">
+        </div>
+        <button class="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
+            data-close-image>✕</button>
     </div>
 
-    <div id="modal-content-helpdesk-button" class="hidden">
-      <div class="space-y-6">
-        <header class="border-b pb-3">
-          <h3 class="text-2xl font-semibold">Helpdesk Button (PowerShell GUI)</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Streamlined ticket creation with system context baked in.</p>
-        </header>
-        <section class="grid md:grid-cols-2 gap-6">
-          <div class="space-y-3">
-            <h4 class="font-semibold">Overview</h4>
-            <p>Windows Forms app triggered from Start Menu/Desktop. Captures user input and auto-gathers device telemetry (uptime, disk/free space, IP, hardware IDs). Packages artifacts and submits via Outlook (MAPI) or falls back to SMTP.</p>
-            <ul class="list-disc pl-5 text-sm">
-              <li>Prefills email to tickets@nh-cc.org with attachments/screens</li>
-              <li>Silent retry &amp; SMTP fallback if Outlook isn’t configured</li>
-              <li>Versioned build pipeline; signed script; per-user and machine installs</li>
-              <li>Deployed via Intune/SCCM with health checks and self-heal</li>
-            </ul>
-          </div>
-          <div class="space-y-3">
-            <h4 class="font-semibold">Stack</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PowerShell</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">WinForms</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Graph/SMTP</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Intune/SCCM</span>
+    <!-- Home -->
+    <section id="home" class="section py-16 dark:bg-dark bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="https://images.creativemarket.com/0.1.0/ps/7468846/1820/1213/m1/fpnw/wm0/img_4955cm-.jpg?1576505994&s=8203b61e48c361620301ba485d18d2e2"
+                        alt="Circuit board background representing technical expertise"
+                        class="rounded-full border-4 dark:border-gray-700 border-gray-300 shadow-xl w-64 h-64 object-cover">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h1 class="text-4xl font-bold dark:text-white text-gray-900 mb-4">Paul Halon</h1>
+                    <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+                        Computer engineer with 16 years’ experience, specializing in Microsoft Entra identity &amp;
+                        access
+                        management and endpoint solutions.
+                    </p>
+                    <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+                        Automation &amp; scripting pro using PowerShell, Python and VBScript. Experienced in SCCM,
+                        privilege-management, Symantec Ghost, Dell KACE, Active Directory, Intune, Azure AD, Exchange,
+                        Visio and Project.
+                    </p>
+                    <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+                        Proven troubleshooting skills across hardware, software and networks—with remote support for
+                        Windows
+                        (client &amp; server), macOS, Linux and mobile platforms.
+                    </p>
+                    <p class="text-xl dark:text-gray-300 text-gray-700">
+                        Outside work: custom PC builds, ham radio &amp; electronics tinkering, dirt biking with family,
+                        and life
+                        with Aurora, our Border Collie–Pitbull mix.
+                    </p>
+                </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
+        </div>
+    </section>
 
-    <div id="modal-content-kiosk-upgrade" class="hidden">
-      <div class="space-y-6">
-        <header class="border-b pb-3">
-          <h3 class="text-2xl font-semibold">Mass Kiosk Windows 10 → 11 Upgrade</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Enterprise-scale OS refresh leveraging image-based deployment.</p>
-        </header>
-        <section class="grid md:grid-cols-2 gap-6">
-          <div class="space-y-3">
-            <h4 class="font-semibold">Overview</h4>
-            <p>Planned and executed a mass upgrade of kiosk endpoints from Windows 10 to Windows 11 across multiple facilities. Standardized gold image captured via Clonezilla with proportional restore enabled for varying disk sizes. Deployments were zero-touch once booted into PXE or USB imaging media.</p>
-            <ul class="list-disc pl-5 text-sm">
-              <li>Created and validated Win 11 kiosk master image</li>
-              <li>Optimized Clonezilla boot scripts for proportional resizing</li>
-              <li>Pre/post imaging scripts for hostname &amp; network configuration</li>
-              <li>Automated post-restore health checks</li>
-            </ul>
-          </div>
-          <div class="space-y-3">
-            <h4 class="font-semibold">Stack</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Clonezilla</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">GRUB</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Windows 11</span>
-              <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PXE Boot</span>
+    <!-- Skills + View Projects trigger -->
+    <section id="skills" class="section py-16 dark:bg-primary bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Technical Skills</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+                <!-- Start Skills -->
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Operating Systems</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-blue-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="90%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Scripting &amp; Automation</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-orange-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="90%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Endpoint &amp; System Management</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-yellow-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="85%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Cloud &amp; Identity Management</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-green-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Networking &amp; Security</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-red-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Endpoint Security &amp; Compliance</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-teal-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Patch Management &amp; Compliance</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-amber-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Collaboration &amp; Productivity Tools</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">75%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-indigo-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="75%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Website Design</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">70%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-pink-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="70%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Monitoring &amp; Alerting Systems</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">60%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-lime-500 transition-all duration-1000 ease-out"
+                            style="width:0" data-width="60%"></div>
+                    </div>
+                </div>
+                <!-- End Skills -->
+
+                <div class="text-center mt-4">
+                    <a id="projects-trigger" href="#projects"
+                        class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition">
+                        View Projects
+                    </a>
+                </div>
+
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
+        </div>
+    </section>
 
-    <div id="modal-content-unraid" class="hidden">
-      <div class="space-y-6">
-        <header class="border-b pb-3">
-          <h3 class="text-2xl font-semibold">Unraid NAS Monitoring</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Published disk health, network throughput, and VM status to MQTT for Home Assistant dashboards.</p>
-        </header>
-        <section class="grid md:grid-cols-2 gap-6">
-          <div>
-            <h4 class="font-semibold">Overview</h4>
-            <p>Custom integration that pulls real-time Unraid metrics and publishes them to MQTT for dashboards.</p>
-          </div>
-        </section>
-      </div>
-    </div>
+    <!-- PROJECTS (inline reveal) -->
+    <section id="projects" class="section">
+        <div class="container mx-auto px-4">
 
-    <div id="modal-content-home-assistant" class="hidden">
-      <div class="space-y-6">
-        <header class="border-b pb-3">
-          <h3 class="text-2xl font-semibold">Home Assistant Dashboard</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">YAML-mode dashboard with Unraid sensors and go2rtc two-way audio.</p>
-        </header>
-      </div>
-    </div>
+            <!-- The reveal frame + flaps -->
+            <div id="projects-reveal" class="reveal-frame rounded-xl shadow-xl">
+                <div class="flap top"></div>
+                <div class="flap bottom"></div>
 
-    <div id="modal-content-pfsense" class="hidden">
-      <div class="space-y-6">
-        <header class="border-b pb-3">
-          <h3 class="text-2xl font-semibold">pfSense VLAN &amp; Firewall</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">5 VLANs, reverse proxy, Cloudflare tunnel.</p>
-        </header>
-      </div>
-    </div>
-  </div>
-  <!-- /templates -->
+                <div class="reveal-content">
+                    <div class="py-12">
+                        <h2 class="text-3xl font-bold mb-8">Projects</h2>
 
-  <!-- Resume -->
-  <section id="resume" class="section py-16 dark:bg-primary bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Professional Resume</h2>
+                        <!-- Work -->
+                        <section aria-labelledby="work-projects" class="mb-12">
+                            <h3 id="work-projects" class="text-2xl font-bold mb-4">Work</h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div
+                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                                    <a href="#" class="block" data-modal-target="#modal-content-intune-m365">
+                                        <img loading="lazy"
+                                            src="https://mssolutions.ca/wp-content/uploads/2023/09/Microsoft-Intune-1024x683.png"
+                                            alt="Laptop fleet management"
+                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                        <div class="p-6">
+                                            <h4 class="text-xl font-semibold mb-2">Intune &amp; M365 Deployment</h4>
+                                            <p class="text-gray-600 dark:text-gray-300">Joined 700 endpoints to Azure AD
+                                                &amp; deployed Microsoft 365 applications organization-wide.</p>
+                                            <div class="mt-4 flex flex-wrap gap-2">
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Intune</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Microsoft
+                                                    365</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
 
-      <div class="text-center mb-12">
-        <a href="/files/Paul_Hanlon_Resume.pdf" download
-           class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition">
-          Download PDF Resume
-        </a>
-      </div>
+                                <div
+                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                                    <a href="#" class="block" data-modal-target="#modal-content-helpdesk-button">
+                                        <img loading="lazy"
+                                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1273&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                            alt="Support workflow on a workstation"
+                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                        <div class="p-6">
+                                            <h4 class="text-xl font-semibold mb-2">Helpdesk Button (PowerShell GUI)</h4>
+                                            <p class="text-gray-600 dark:text-gray-300">One-click support intake that
+                                                emails tickets with auto-collected diagnostics.</p>
+                                            <div class="mt-4 flex flex-wrap gap-2">
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">PowerShell</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">WinForms</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Outlook/SMTP</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
 
-      <!-- (resume items unchanged from your original; keeping for brevity) -->
-      <!-- paste your resume blocks here; I left structure identical -->
-    </div>
-  </section>
+                                <div
+                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                                    <a href="#" class="block" data-modal-target="#modal-content-kiosk-upgrade">
+                                        <img loading="lazy"
+                                            src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                            alt="Windows deployment in progress"
+                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                        <div class="p-6">
+                                            <h4 class="text-xl font-semibold mb-2">Mass Kiosk Windows 10 → 11 Upgrade
+                                            </h4>
+                                            <p class="text-gray-600 dark:text-gray-300">Automated multi-site kiosk
+                                                upgrades using Clonezilla imaging pipeline.</p>
+                                            <div class="mt-4 flex flex-wrap gap-2">
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Clonezilla</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Windows
+                                                    11</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section py-16 dark:bg-dark bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Get In Touch</h2>
-      <div class="max-w-2xl mx-auto">
-        <div class="mt-8 text-center">
-          <p class="dark:text-gray-300 text-gray-700 mb-4">Connect with me through:</p>
-          <div class="flex justify-center space-x-6">
-            <a href="https://www.linkedin.com/in/paul-hanlon-11863a1a5/" target="_blank" rel="noopener noreferrer" class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i class="fab fa-linkedin text-2xl"></i></a>
-            <a href="https://github.com/B0st0wn" target="_blank" rel="noopener noreferrer" class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i class="fab fa-github text-2xl"></i></a>
-            <a href="https://www.facebook.com/paulfhanlon/" target="_blank" rel="noopener noreferrer" class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i class="fab fa-facebook text-2xl"></i></a>
-          </div>
+                        <!-- Home -->
+                        <section aria-labelledby="home-projects">
+                            <h3 id="home-projects" class="text-2xl font-bold mb-4">Home</h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div
+                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                                    <a href="#" class="block" data-modal-target="#modal-content-unraid">
+                                        <img loading="lazy" src="http://hanlonhouse.us/img/unraid.png"
+                                            alt="Unraid server rack"
+                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                        <div class="p-6">
+                                            <h4 class="text-xl font-semibold mb-2">Unraid NAS Monitoring</h4>
+                                            <p class="text-gray-600 dark:text-gray-300">Published disk health, network
+                                                throughput, and VM status to MQTT for Home Assistant dashboards.</p>
+                                            <div class="mt-4 flex flex-wrap gap-2">
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Unraid</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Python</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div
+                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                                    <a href="#" class="block" data-modal-target="#modal-content-home-assistant">
+                                        <img loading="lazy"
+                                            src="https://www.home-assistant.io/images/default-social.png"
+                                            alt="Home Assistant dashboard on tablet"
+                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                        <div class="p-6">
+                                            <h4 class="text-xl font-semibold mb-2">Home Assistant Dashboard</h4>
+                                            <p class="text-gray-600 dark:text-gray-300">YAML-mode dashboard with
+                                                auto-entities for Unraid sensors and two-way audio via go2rtc.</p>
+                                            <div class="mt-4 flex flex-wrap gap-2">
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Home
+                                                    Assistant</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">YAML</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div
+                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                                    <a href="#" class="block" data-modal-target="#modal-content-pfsense">
+                                        <img loading="lazy"
+                                            src="https://blog.domotz.com/wp-content/uploads/2023/01/pfsense-blog-header.jpg"
+                                            alt="pfSense firewall device"
+                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                        <div class="p-6">
+                                            <h4 class="text-xl font-semibold mb-2">pfSense VLAN &amp; Firewall</h4>
+                                            <p class="text-gray-600 dark:text-gray-300">Designed 5-VLAN network
+                                                segmentation with reverse proxy for go2rtc and secure Cloudflare tunnel.
+                                            </p>
+                                            <div class="mt-4 flex flex-wrap gap-2">
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">pfSense</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">NGINX</span>
+                                                <span
+                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Cloudflare</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div> <!-- /reveal-content -->
+            </div> <!-- /reveal-frame -->
+
+        </div>
+    </section>
+
+    <!-- Hidden templates for project detail modal -->
+    <div id="project-templates" class="hidden">
+
+        <!-- Modal for Intune & M365 Deployment -->
+        <div id="modal-content-intune-m365" class="hidden">
+            <div class="space-y-6">
+                <header class="border-b pb-3">
+                    <h3 class="text-2xl font-semibold">Intune & Microsoft 365 Deployment</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Seamless fleet onboarding and productivity suite rollout.
+                    </p>
+                </header>
+
+                <section class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Overview</h4>
+                        <p>
+                            Migrated 700 corporate endpoints to hybrid Azure AD join and enrolled in Intune for
+                            centralized device
+                            management. Deployed Microsoft 365 applications, configured baseline security policies, and
+                            enabled
+                            self-service device provisioning.
+                        </p>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li>Hybrid Azure AD join with automatic Intune enrollment</li>
+                            <li>Custom compliance policies & conditional access rules</li>
+                            <li>Deployment of Office apps via Endpoint Manager</li>
+                            <li>User training & post-deployment support</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Intune</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Azure AD</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Microsoft 365 Apps</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Endpoint Manager</span>
+                        </div>
+                        <h4 class="font-semibold mt-4">Links</h4>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li><a href="#" class="underline">Deployment Runbook</a></li>
+                            <li><a href="#" class="underline">Post-Deployment Metrics</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </div>
 
-        <div style="height: 1rem;"></div>
-        <p class="dark:text-gray-300 text-gray-700 mb-4 text-center">Or send me an email.</p>
+        <!-- Modal for Helpdesk Button -->
+        <div id="modal-content-helpdesk-button" class="hidden">
+            <div class="space-y-6">
+                <header class="border-b pb-3">
+                    <h3 class="text-2xl font-semibold">Helpdesk Button (PowerShell GUI)</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Streamlined ticket creation with system context
+                        baked in.
+                    </p>
+                </header>
 
-        <form id="contactForm" class="dark:bg-primary bg-gray-100 p-8 rounded-lg shadow-md" onsubmit="return sendMail();">
-          <div class="mb-6">
-            <label for="name" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Name</label>
-            <input type="text" id="name" class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800" required>
-          </div>
-          <div class="mb-6">
-            <label for="email" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Email</label>
-            <input type="email" id="email" class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800" required>
-          </div>
-          <div class="mb-6">
-            <label for="subject" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Subject</label>
-            <input type="text" id="subject" class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800" required>
-          </div>
-          <div class="mb-6">
-            <label for="message" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Message</label>
-            <textarea id="message" rows="5" class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800" required></textarea>
-          </div>
-          <button type="submit" class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition">Send Message</button>
-        </form>
-      </div>
+                <section class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Overview</h4>
+                        <p>
+                            Windows Forms app triggered from Start Menu/Desktop. Captures user input and auto-gathers
+                            device telemetry
+                            (uptime, disk/free space, IP, hardware IDs). Packages artifacts and submits via Outlook
+                            (MAPI) or falls
+                            back to SMTP.
+                        </p>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li>Prefills email to <code>tickets@nh-cc.org</code> with attachments/screens</li>
+                            <li>Silent retry & SMTP fallback if Outlook isn’t configured</li>
+                            <li>Versioned build pipeline; signed script; per-user and machine installs</li>
+                            <li>Deployed via Intune/SCCM with health checks and self-heal</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PowerShell</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">WinForms</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Graph/SMTP</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Intune/SCCM</span>
+                        </div>
+
+                        <h4 class="font-semibold mt-4">Screenshot</h4>
+                        <a href="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0"
+                            target="_blank" class="block">
+                            <picture>
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Helpdesk Button GUI preview"
+                                    class="w-full h-40 object-cover rounded-md ring-1 ring-gray-200 dark:ring-gray-700 cursor-zoom-in">
+                            </picture>
+                            <span class="sr-only">Open full-size image in a new tab</span>
+                        </a>
+
+                        <h4 class="font-semibold mt-4">Links</h4>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li><a href="#" class="underline">Deployment Runbook</a></li>
+                            <li><a href="#" class="underline">Build & Signing Pipeline</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Modal for Mass Kiosk Upgrade -->
+        <div id="modal-content-kiosk-upgrade" class="hidden">
+            <div class="space-y-6">
+                <header class="border-b pb-3">
+                    <h3 class="text-2xl font-semibold">Mass Kiosk Windows 10 → 11 Upgrade</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Enterprise-scale OS refresh leveraging image-based deployment.
+                    </p>
+                </header>
+
+                <section class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Overview</h4>
+                        <p>
+                            Planned and executed a mass upgrade of kiosk endpoints from Windows 10 to Windows 11 across
+                            multiple
+                            facilities. Standardized gold image captured via Clonezilla with proportional restore
+                            enabled for varying
+                            disk sizes. Deployments were zero-touch once booted into PXE or USB imaging media.
+                        </p>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li>Created and validated Win 11 kiosk master image with all required apps and lockdown
+                                settings</li>
+                            <li>Optimized Clonezilla boot scripts for proportional resizing and rapid restore</li>
+                            <li>Integrated pre/post imaging scripts for hostname and network configuration</li>
+                            <li>Automated post-restore health checks before site sign-off</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Clonezilla</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">GRUB</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Windows 11</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PXE Boot</span>
+                        </div>
+                        <h4 class="font-semibold mt-4">Links</h4>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li><a href="#" class="underline">Imaging Runbook</a></li>
+                            <li><a href="#" class="underline">Master Image Config</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div id="modal-content-unraid">
+            <div class="space-y-6">
+                <header class="border-b pb-3">
+                    <h3 class="text-2xl font-semibold">Unraid NAS Monitoring</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Published disk health, network throughput, and VM status to MQTT for Home Assistant dashboards.
+                    </p>
+                </header>
+                <section class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Overview</h4>
+                        <p>Developed a custom integration that pulls real-time Unraid system metrics and publishes them
+                            to MQTT,
+                            enabling detailed Home Assistant dashboards for storage, network, and virtualization
+                            monitoring.</p>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li>Disk S.M.A.R.T. health and temperature tracking</li>
+                            <li>Live network throughput per active interface</li>
+                            <li>VM power state, vCPU, memory, and IP address reporting</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Unraid</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">MQTT</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Python</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Home Assistant</span>
+                        </div>
+                        <h4 class="font-semibold mt-4">Links</h4>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li><a href="https://github.com/B0st0wn/hass-unraid" class="underline"
+                                    target="_blank">Integration GitHub
+                                    Repo</a></li>
+                            <!-- <li><a href="#" class="underline">Home Assistant Dashboard YAML</a></li> -->
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div id="modal-content-home-assistant">
+            <div class="space-y-6">
+                <header class="border-b pb-3">
+                    <h3 class="text-2xl font-semibold">Home Assistant Dashboard</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        YAML-mode dashboard with Unraid sensors, auto-entities, and go2rtc two-way audio controls.
+                    </p>
+                </header>
+                <section class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Overview</h4>
+                        <p>Built a fully customized Home Assistant dashboard in YAML mode. Includes auto-entities to
+                            display
+                            Unraid disk and VM data, network throughput, and live go2rtc streams with two-way audio.</p>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li>Dynamic entity filtering for disk sensors</li>
+                            <li>Integrated Unraid MQTT telemetry</li>
+                            <li>WebRTC for low-latency audio/video</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Home Assistant</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">YAML</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">MQTT</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">go2rtc</span>
+                        </div>
+                        <h4 class="font-semibold mt-4">Links</h4>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li><a href="#" class="underline">View YAML config</a></li>
+                            <li><a href="#" class="underline">MQTT sensor list</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div id="modal-content-pfsense">
+            <div class="space-y-6">
+                <header class="border-b pb-3">
+                    <h3 class="text-2xl font-semibold">pfSense VLAN &amp; Firewall</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Designed 5-VLAN network segmentation with reverse proxy for go2rtc and secure Cloudflare tunnel.
+                    </p>
+                </header>
+
+                <section class="grid md:grid-cols-2 gap-6">
+                    <!-- Left column -->
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Overview</h4>
+                        <p>Implemented advanced network segmentation using pfSense to isolate critical services, enhance
+                            security,
+                            and enable flexible routing. Integrated reverse proxy and Cloudflare tunneling for secure,
+                            remote-friendly
+                            access to internal applications.</p>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li>5 VLANs: main, camera, IoT, DMZ, and Unraid apps</li>
+                            <li>Firewall rules for inter-VLAN traffic control</li>
+                            <li>Reverse proxy for go2rtc WebRTC streams</li>
+                            <li>Cloudflare Tunnel for encrypted remote access</li>
+                        </ul>
+                    </div>
+
+                    <!-- Right column: Stack + image (no Links) -->
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold">Stack</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">pfSense</span>
+                                <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">NGINX</span>
+                                <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Cloudflare Tunnel</span>
+                                <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">VLAN</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold">Topology Diagram</h4>
+                            <a href="/img/pfsense-topology.png" target="_blank" class="block">
+                                <picture>
+                                    <img src="/img/pfsense-topology.png"
+                                        alt="pfSense VLAN and firewall topology diagram"
+                                        class="w-full h-40 object-cover rounded-md ring-1 ring-gray-200 dark:ring-gray-700 cursor-zoom-in">
+                                </picture>
+                                <span class="sr-only">Open full-size image in a new tab</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
     </div>
-  </section>
+    <!-- /templates -->
 
-  <!-- Footer -->
-  <footer class="dark:bg-black bg-gray-800 dark:text-gray-400 text-gray-300 py-8">
-    <div class="container mx-auto px-4 text-center">
-      <p>&copy; <span id="currentYear"></span> Hanlon House.</p>
-      <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    <!-- Resume Section -->
+    <section id="resume" class="section py-16 dark:bg-primary bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Professional Resume</h2>
+
+            <!-- Work Experience -->
+            <div>
+                <!--Resume Download-->
+                <div class="text-center mb-12">
+                    <a href="/files/Paul_Hanlon_Resume.pdf" download
+                        class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Download PDF Resume
+                    </a>
+                </div>
+                <!-- <h3
+          class="text-2xl font-semibold mb-6 pb-2 border-b dark:border-gray-700 border-gray-300 dark:text-white text-gray-900">
+          Work Experience
+        </h3> -->
+                <div class="space-y-3">
+                    <!-- Current Job -->
+                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Endpoint Management Engineer
+                            </h4>
+                            <span class="dark:text-gray-400 text-gray-600">2023 – Present</span>
+                        </div>
+                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+                            Catholic Charities New Hampshire, Manchester, NH
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                            <li>Administer hybrid Azure AD join and Intune MDM enrollment across all supported devices
+                            </li>
+                            <li>Deploy and maintain automated support tools, including a custom PowerShell-based
+                                Helpdesk Button with Outlook integration</li>
+                            <li>Replaced legacy email-based support with a structured ticketing system to streamline IT
+                                workflows</li>
+                            <li>Create, update, and troubleshoot Group Policy Objects for security, software
+                                configuration, and user environment management</li>
+                            <li>Manage browser settings and controls through GPO for standardization and compliance</li>
+                            <li>Develop PowerShell scripts for automation, diagnostics, and policy enforcement</li>
+                            <li>Support identity, access, and device compliance initiatives through Azure AD and Intune
+                                policies</li>
+                            <li>Troubleshoot and resolve advanced system administration issues related to enrollment,
+                                policy application, and authentication</li>
+                        </ul>
+                    </div>
+
+                    <!-- Enterprise Engineering Technician -->
+                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Enterprise Engineering
+                                Technician</h4>
+                            <span class="dark:text-gray-400 text-gray-600">2022 – 2023</span>
+                        </div>
+                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+                            State of New Hampshire, Concord, NH
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                            <li>Troubleshoot and resolve desktop-related hardware and software issues, documenting
+                                solutions for future reference</li>
+                            <li>Assemble, configure, and install computer hardware, software, and peripherals</li>
+                            <li>Plan and execute large-scale desktop computer moves, ensuring internal checks and
+                                controls are completed</li>
+                            <li>Maintain accurate inventory and floor plans of desktop equipment in assigned locations
+                            </li>
+                            <li>Collaborate with state agencies and vendors to address computer hardware and software
+                                problems, including warranty services</li>
+                            <li>Provide technical support and training to departmental staff and end-users on computer
+                                hardware, software, and peripherals, ensuring compliance with standards</li>
+                            <li>Evaluate and recommend network and desktop hardware and software acquisitions</li>
+                            <li>Monitor help desk tickets, assigning and resolving issues or delegating to appropriate
+                                technicians</li>
+                        </ul>
+                    </div>
+
+                    <!-- Information Technology Administrator -->
+                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Information Technology
+                                Administrator</h4>
+                            <span class="dark:text-gray-400 text-gray-600">2018 – 2021</span>
+                        </div>
+                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+                            Brooks Automation, Chelmsford, MA
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                            <li>Manage Active Directory functions such as password resets, user management, and
+                                permissions</li>
+                            <li>Use Dell KACE to image laptops and desktops for users</li>
+                            <li>Provide deskside and phone support through Telax and remote support using Dame
+                                Ware/Teamviewer</li>
+                            <li>Write automation scripts for imaging process</li>
+                            <li>Support large-scale manufacturing floor</li>
+                            <li>Map network drives and manage permissions</li>
+                            <li>Create and support XP VMs using VMware to run legacy software in a quarantined
+                                environment</li>
+                            <li>Large scale hardware refresh/windows 10 deployment/upgrade</li>
+                        </ul>
+                    </div>
+
+                    <!-- Computer Repair Escalation Technician -->
+                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Repair Escalation
+                                Technician</h4>
+                            <span class="dark:text-gray-400 text-gray-600">2012 – 2018</span>
+                        </div>
+                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+                            PlumChoice Inc., Lowell, MA
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                            <li>Provide phone support to end-users in a call center environment</li>
+                            <li>Support remote users using Bomgar software</li>
+                            <li>Work one-on-one with consumers and retail management to resolve technical issues</li>
+                            <li>Handle retention and consumer relations for end-users</li>
+                            <li>Collaborate with tier 2 technicians to resolve complex issues</li>
+                            <li>Conduct diagnostic tests and assist with sales related to PC issues</li>
+                        </ul>
+                    </div>
+
+                    <!-- Computer Technician (2011–2012) -->
+                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Technician</h4>
+                            <span class="dark:text-gray-400 text-gray-600">2011 – 2012</span>
+                        </div>
+                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+                            Nerologica Inc., Danvers, MA
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                            <li>Active Directory: Perform password resets and manage user accounts</li>
+                            <li>Image laptops and desktops for users</li>
+                            <li>Provide deskside and phone support to assist users with software installation,
+                                troubleshooting, network connection, and email setup</li>
+                        </ul>
+                    </div>
+
+                    <!-- Computer Technician (2010–2011) -->
+                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Technician</h4>
+                            <span class="dark:text-gray-400 text-gray-600">2010 – 2011</span>
+                        </div>
+                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+                            University of Massachusetts Lowell
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                            <li>Active Directory: Perform password resets and manage user accounts</li>
+                            <li>Image laptops and desktops for users</li>
+                            <li>Provide deskside and phone support to assist users with software installation,
+                                troubleshooting, network connection, and email setup</li>
+                            <li>Assist with class login and schedule issues</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 3rem;"></div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section py-16 dark:bg-dark bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="mt-8 text-center">
+                    <p class="dark:text-gray-300 text-gray-700 mb-4">Connect with me through:</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://www.linkedin.com/in/paul-hanlon-11863a1a5/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
+                                class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="https://github.com/B0st0wn" target="_blank" rel="noopener noreferrer"
+                            class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
+                                class="fab fa-github text-2xl"></i></a>
+                        <a href="https://www.facebook.com/paulfhanlon/" target="_blank" rel="noopener noreferrer"
+                            class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
+                                class="fab fa-facebook text-2xl"></i></a>
+                    </div>
+                </div>
+
+                <div style="height: 1rem;"></div>
+                <p class="dark:text-gray-300 text-gray-700 mb-4 text-center">Or send me an email.</p>
+
+                <form id="contactForm" class="dark:bg-primary bg-gray-100 p-8 rounded-lg shadow-md"
+                    onsubmit="return sendMail();">
+                    <div class="mb-6">
+                        <label for="name" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Name</label>
+                        <input type="text" id="name"
+                            class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+                            required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" id="email"
+                            class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+                            required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject"
+                            class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Subject</label>
+                        <input type="text" id="subject"
+                            class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+                            required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message"
+                            class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Message</label>
+                        <textarea id="message" rows="5"
+                            class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+                            required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition">Send
+                        Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark:bg-black bg-gray-800 dark:text-gray-400 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; <span id="currentYear"></span> Hanlon House.</p>
+            <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+        </div>
+    </footer>
+
+    <!-- Global detail modal (for card details) -->
+    <div id="modal-root" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/60" data-modal-close></div>
+        <div
+            class="fixed z-10 my-10 left-1/2 -translate-x-1/2 top-2 bottom-2 w-[80%] max-w-5xl overflow-auto rounded-2xl bg-white dark:bg-gray-900 shadow-2xl p-6">
+            <div class="sticky top-3 float-right">
+                <button data-modal-close class="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    aria-label="Close">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="prose dark:prose-invert max-w-none"></div>
+        </div>
     </div>
-  </footer>
 
-  <!-- Global detail modal (for card details) -->
-  <div id="modal-root" class="fixed inset-0 z-[100] hidden">
-    <div class="absolute inset-0 bg-black/60" data-modal-close></div>
-    <div class="fixed z-10 my-10 left-1/2 -translate-x-1/2 top-2 bottom-2 w-[80%] max-w-5xl overflow-auto rounded-2xl bg-white dark:bg-gray-900 shadow-2xl p-6">
-      <div class="sticky top-3 float-right">
-        <button data-modal-close class="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Close">
-          <i class="fas fa-times text-xl"></i>
-        </button>
-      </div>
-      <div id="modal-body" class="prose dark:prose-invert max-w-none"></div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script>
-    // Skill bars
-    document.addEventListener('DOMContentLoaded', () => {
-      const bars = document.querySelectorAll('.skill-bar-fill');
-      const obs = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const bar = entry.target;
-          const target = bar.getAttribute('data-width');
-          const overshoot = Math.min(parseFloat(target) * 1.1, 100) + '%';
-          bar.animate([{ width: '0%' }, { width: overshoot }, { width: target }], { duration: 900, easing: 'ease-out', fill: 'forwards' });
-          observer.unobserve(bar);
+    <!-- Scripts -->
+    <script>
+        // Skill bars
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.skill-bar-fill');
+            const obs = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const bar = entry.target;
+                    const target = bar.getAttribute('data-width');
+                    const overshoot = Math.min(parseFloat(target) * 1.1, 100) + '%';
+                    bar.animate([{ width: '0%' }, { width: overshoot }, { width: target }], { duration: 900, easing: 'ease-out', fill: 'forwards' });
+                    observer.unobserve(bar);
+                });
+            }, { threshold: 0.2 });
+            bars.forEach(bar => { bar.style.width = '0'; obs.observe(bar); });
         });
-      }, { threshold: 0.2 });
-      bars.forEach(bar => { bar.style.width = '0'; obs.observe(bar); });
-    });
 
-    // Theme toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const htmlEl = document.documentElement;
-    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      htmlEl.classList.add('dark'); themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else { htmlEl.classList.remove('dark'); htmlEl.classList.add('light'); }
-    themeToggle.addEventListener('click', () => {
-      if (htmlEl.classList.contains('dark')) {
-        htmlEl.classList.remove('dark'); htmlEl.classList.add('light'); themeIcon.classList.replace('fa-sun', 'fa-moon'); localStorage.setItem('theme', 'light');
-      } else {
-        htmlEl.classList.remove('light'); htmlEl.classList.add('dark'); themeIcon.classList.replace('fa-moon', 'fa-sun'); localStorage.setItem('theme', 'dark');
-      }
-    });
-
-    // Tabs smooth scroll + active
-    document.addEventListener('DOMContentLoaded', function () {
-      const tabs = document.querySelectorAll('.tab-link');
-      const sections = document.querySelectorAll('.section');
-      function setActiveTab() {
-        let currentSection = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-          if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
-            currentSection = section.getAttribute('id');
-          }
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlEl = document.documentElement;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlEl.classList.add('dark'); themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else { htmlEl.classList.remove('dark'); htmlEl.classList.add('light'); }
+        themeToggle.addEventListener('click', () => {
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark'); htmlEl.classList.add('light'); themeIcon.classList.replace('fa-sun', 'fa-moon'); localStorage.setItem('theme', 'light');
+            } else {
+                htmlEl.classList.remove('light'); htmlEl.classList.add('dark'); themeIcon.classList.replace('fa-moon', 'fa-sun'); localStorage.setItem('theme', 'dark');
+            }
         });
-        tabs.forEach(tab => {
-          tab.classList.remove('active-tab');
-          if (tab.getAttribute('href') === `#${currentSection}`) tab.classList.add('active-tab');
-        });
-      }
-      tabs.forEach(tab => {
-        tab.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetSection = document.querySelector(targetId);
-          window.scrollTo({ top: targetSection.offsetTop - 80, behavior: 'smooth' });
-        });
-      });
-      window.addEventListener('scroll', setActiveTab);
-      setActiveTab();
-    });
 
-    // Contact form
-    function sendMail() {
-      const name = encodeURIComponent(document.getElementById('name').value);
-      const email = encodeURIComponent(document.getElementById('email').value);
-      const subject = encodeURIComponent(document.getElementById('subject').value);
-      const message = encodeURIComponent(document.getElementById('message').value);
-      const mailtoLink = `mailto:paul@hanlonhouse.us?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
-      window.location.href = mailtoLink;
-      return false;
-    }
-    window.sendMail = sendMail;
+        // Tabs smooth scroll + active
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-link');
+            const sections = document.querySelectorAll('.section');
+            function setActiveTab() {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                tabs.forEach(tab => {
+                    tab.classList.remove('active-tab');
+                    if (tab.getAttribute('href') === `#${currentSection}`) tab.classList.add('active-tab');
+                });
+            }
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    window.scrollTo({ top: targetSection.offsetTop - 80, behavior: 'smooth' });
+                });
+            });
+            window.addEventListener('scroll', setActiveTab);
+            setActiveTab();
+        });
 
-    // Project detail modal wiring (unchanged)
-    (() => {
-      const modal = document.getElementById('modal-root');
-      const body = document.getElementById('modal-body');
-      document.addEventListener('click', e => {
-        const trigger = e.target.closest('[data-modal-target]');
-        if (!trigger) return;
-        e.preventDefault();
-        const src = document.querySelector(trigger.getAttribute('data-modal-target'));
-        if (!src) return;
-        body.innerHTML = src.innerHTML;
-        modal.classList.remove('hidden');
-        document.documentElement.classList.add('overflow-hidden');
-      });
-      modal.addEventListener('click', e => {
-        if (e.target.closest('[data-modal-close]') || e.target.matches('[data-modal-close], [data-modal-close] *') || e.target === modal.firstElementChild) {
-          modal.classList.add('hidden');
-          body.innerHTML = '';
-          document.documentElement.classList.remove('overflow-hidden');
+        // Contact form
+        function sendMail() {
+            const name = encodeURIComponent(document.getElementById('name').value);
+            const email = encodeURIComponent(document.getElementById('email').value);
+            const subject = encodeURIComponent(document.getElementById('subject').value);
+            const message = encodeURIComponent(document.getElementById('message').value);
+            const mailtoLink = `mailto:paul@hanlonhouse.us?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
+            window.location.href = mailtoLink;
+            return false;
         }
-      });
-      document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-          modal.classList.add('hidden');
-          body.innerHTML = '';
-          document.documentElement.classList.remove('overflow-hidden');
-        }
-      });
-    })();
-  </script>
+        window.sendMail = sendMail;
 
-  <!-- Local JS that opens/closes the two‑flap reveal -->
-  <script src="/js/projects.js" defer></script>
-  <script src="/js/image_modal.js"></script>
+        // Project detail modal wiring (unchanged)
+        (() => {
+            const modal = document.getElementById('modal-root');
+            const body = document.getElementById('modal-body');
+            document.addEventListener('click', e => {
+                const trigger = e.target.closest('[data-modal-target]');
+                if (!trigger) return;
+                e.preventDefault();
+                const src = document.querySelector(trigger.getAttribute('data-modal-target'));
+                if (!src) return;
+                body.innerHTML = src.innerHTML;
+                modal.classList.remove('hidden');
+                document.documentElement.classList.add('overflow-hidden');
+            });
+            modal.addEventListener('click', e => {
+                if (e.target.closest('[data-modal-close]') || e.target.matches('[data-modal-close], [data-modal-close] *') || e.target === modal.firstElementChild) {
+                    modal.classList.add('hidden');
+                    body.innerHTML = '';
+                    document.documentElement.classList.remove('overflow-hidden');
+                }
+            });
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    modal.classList.add('hidden');
+                    body.innerHTML = '';
+                    document.documentElement.classList.remove('overflow-hidden');
+                }
+            });
+        })();
+    </script>
+
+    <!-- Local JS that opens/closes the two‑flap reveal -->
+    <script src="/js/projects.js" defer></script>
+    <script src="/js/image_modal.js"></script>
 </body>
+
 </html>
