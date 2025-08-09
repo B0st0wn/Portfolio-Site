@@ -92,42 +92,6 @@
         </button>
     </div>
 
-
-    <!-- <script>
-            (() => {
-                const box = document.getElementById('img-lightbox');
-                const img = box.querySelector('img');
-
-                // open on any element with data-zoom-src
-                document.addEventListener('click', e => {
-                    const el = e.target.closest('[data-zoom-src]');
-                    if (!el) return;
-                    e.preventDefault();
-                    img.src = el.dataset.zoomSrc || el.currentSrc || el.src;
-                    box.classList.remove('hidden');
-                    document.documentElement.classList.add('overflow-hidden');
-                });
-
-                // close handlers
-                box.addEventListener('click', e => {
-                    if (e.target.matches('[data-close-image], [data-close-image] *')) {
-                        box.classList.add('hidden');
-                        document.documentElement.classList.remove('overflow-hidden');
-                    }
-                });
-
-                // prevent clicks inside from bubbling to page handlers
-                box.querySelector('img').addEventListener('click', e => e.stopPropagation());
-
-                document.addEventListener('keydown', e => {
-                    if (e.key === 'Escape' && !box.classList.contains('hidden')) {
-                        box.classList.add('hidden');
-                        document.documentElement.classList.remove('overflow-hidden');
-                    }
-                });
-            })();
-    </script> -->
-
     <!-- Projects: start -->
     <div id="projects" class="sr-only" aria-hidden="true"></div>
 
@@ -1156,7 +1120,7 @@
         });
     </script>
 
-    <script src="/js/image_modal.js"></script>
+    <script src="js/image_modal.js"></script>
 
 </body>
 
