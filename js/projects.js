@@ -1,28 +1,45 @@
-<script>
-  (() => {
-    const frame   = document.getElementById('projects-reveal');
-    const trigger = document.getElementById('projects-trigger');
+// Two-flap inline reveal controller
+(() => {
+  const trigger = document.getElementById('projects-trigger');
+  const frame = document.getElementById('projects-reveal');
+  const section = document.getElementById('projects');
 
-    function openProjects(e){
-      if(e) e.preventDefault();
-      if(frame.classList.contains('open')) return;
+  if (!trigger || !frame || !section) return;
 
-      // keep current height for the animation, then release to auto
-      const startH = frame.getBoundingClientRect().height;
-      frame.style.height = startH + 'px';   // lock current height
-      // open flaps
-      frame.classList.add('open');
+  const open = (scrollInto = true) => {
+    if (frame.classList.contains('open')) return;
+    frame.classList.add('open');
+    trigger.setAttribute('aria-expanded', 'true');
+    if (scrollInto) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (location.hash !== '#projects') history.replaceState(null, '', '#projects');
+  };
 
-      // after flaps move, switch to auto height so content expands naturally
-      setTimeout(()=>{ frame.style.height = 'auto'; }, 720);
+  const close = () => {
+    if (!frame.classList.contains('open')) return;
+    frame.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+    // Don’t change the hash on close so back button is chill
+  };
 
-      // bring it into view
-      frame.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  // Toggle on button click
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (frame.classList.contains('open')) close(); else open(true);
+  });
 
-    trigger.addEventListener('click', openProjects);
+  // Open automatically if user lands on /#projects
+  if (location.hash === '#projects') {
+    // delay a tick so layout is ready before measuring/animating
+    requestAnimationFrame(() => open(false));
+  }
 
-    // Optional: open if URL has #projects
-    if (location.hash === '#projects') setTimeout(()=>openProjects(), 50);
-  })();
-</script>
+  // Optional: ESC to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+
+  // Make it accessible
+  trigger.setAttribute('role', 'button');
+  trigger.setAttribute('aria-controls', 'projects-reveal');
+  trigger.setAttribute('aria-expanded', 'false');
+})();

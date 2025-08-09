@@ -1,47 +1,69 @@
-/* === Inline split reveal (two flaps) ======================= */
-.reveal-frame{
+/* Two‑flap (fortune‑teller) inline reveal
+   -------------------------------------- */
+
+.reveal-frame {
   position: relative;
-  width: 100%;
-  height: min(80vh, 800px);     /* closed height; pushes content below */
-  overflow: hidden;             /* hide content until open */
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,.15);
-  background: transparent;
+  margin-top: 1.5rem;
+  perspective: 1200px;              /* gives the flap fold some depth */
+  border-radius: 0.75rem;
+  overflow: hidden;                  /* keep flaps clipped */
 }
 
-.reveal-content{
-  position: absolute; inset: 0;
-  opacity: 0;                   /* fade in as flaps move */
-  transition: opacity 400ms ease 300ms;
-}
-
-.reveal-frame.open .reveal-content{ opacity: 1; }
-
-/* flaps cover the frame and split from the middle */
-.reveal-frame .flap{
-  position: absolute; left: 0; right: 0;
+/* Flaps cover the content when closed */
+.reveal-frame .flap {
+  position: absolute;
+  left: 0;
+  right: 0;
   height: 50%;
-  background: var(--flap-bg, #ffffff);
-  transition: transform 700ms cubic-bezier(.4,0,.2,1);
+  background: #ffffff;
+  transform-origin: center;
+  transform: rotateX(0deg);
+  transition: transform 650ms cubic-bezier(.22,.61,.36,1);
   will-change: transform;
-  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  z-index: 2;
+  box-shadow: 0 1px 0 rgba(0,0,0,.08) inset;
 }
-html.dark .reveal-frame .flap{ background: var(--flap-bg-dark, #0a0a0a); }
 
-.reveal-frame .flap.top   { top: 0;    transform-origin: 50% 0%; }
-.reveal-frame .flap.bottom{ bottom: 0; transform-origin: 50% 100%; }
+.reveal-frame .flap.top { top: 0; transform-origin: top; }
+.reveal-frame .flap.bottom { bottom: 0; transform-origin: bottom; }
 
-/* closed state: flaps meet in the middle (no transform needed) */
-.reveal-frame:not(.open) .flap.top    { transform: translateY(0); }
-.reveal-frame:not(.open) .flap.bottom { transform: translateY(0); }
+/* Dark mode surface for flaps */
+html.dark .reveal-frame .flap { background: #0a0a0a; }
 
-/* open state: flaps slide out of view */
-.reveal-frame.open .flap.top    { transform: translateY(-100%); }
-.reveal-frame.open .flap.bottom { transform: translateY(100%); }
-
-/* once open, let the section take natural height instead of fixed */
-.reveal-frame.open{
-  height: auto;
-  overflow: visible;
-  box-shadow: none;
+/* Content is hidden (collapsed) until frame is .open */
+.reveal-frame .reveal-content {
+  position: relative;
+  z-index: 1;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition:
+    max-height 700ms cubic-bezier(.22,.61,.36,1),
+    opacity 250ms ease;
+  background: transparent; /* keep page bg showing during fold */
 }
+
+/* When opened: flaps fold away; content expands */
+.reveal-frame.open .flap.top { transform: rotateX(-92deg); }
+.reveal-frame.open .flap.bottom { transform: rotateX(92deg); }
+.reveal-frame.open .reveal-content {
+  max-height: 5000px;   /* big number so tall grids can expand */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Optional: subtle seam line between flaps when closed */
+.reveal-frame::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(0,0,0,.08);
+  z-index: 3;
+}
+html.dark .reveal-frame::before { background: rgba(255,255,255,.06); }
+
+/* Prevent layout jump – shows a small closed “panel” instead of empty gap */
+#projects .container { position: relative; }
