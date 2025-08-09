@@ -1,0 +1,47 @@
+/* === Inline split reveal (two flaps) ======================= */
+.reveal-frame{
+  position: relative;
+  width: 100%;
+  height: min(80vh, 800px);     /* closed height; pushes content below */
+  overflow: hidden;             /* hide content until open */
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  background: transparent;
+}
+
+.reveal-content{
+  position: absolute; inset: 0;
+  opacity: 0;                   /* fade in as flaps move */
+  transition: opacity 400ms ease 300ms;
+}
+
+.reveal-frame.open .reveal-content{ opacity: 1; }
+
+/* flaps cover the frame and split from the middle */
+.reveal-frame .flap{
+  position: absolute; left: 0; right: 0;
+  height: 50%;
+  background: var(--flap-bg, #ffffff);
+  transition: transform 700ms cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+html.dark .reveal-frame .flap{ background: var(--flap-bg-dark, #0a0a0a); }
+
+.reveal-frame .flap.top   { top: 0;    transform-origin: 50% 0%; }
+.reveal-frame .flap.bottom{ bottom: 0; transform-origin: 50% 100%; }
+
+/* closed state: flaps meet in the middle (no transform needed) */
+.reveal-frame:not(.open) .flap.top    { transform: translateY(0); }
+.reveal-frame:not(.open) .flap.bottom { transform: translateY(0); }
+
+/* open state: flaps slide out of view */
+.reveal-frame.open .flap.top    { transform: translateY(-100%); }
+.reveal-frame.open .flap.bottom { transform: translateY(100%); }
+
+/* once open, let the section take natural height instead of fixed */
+.reveal-frame.open{
+  height: auto;
+  overflow: visible;
+  box-shadow: none;
+}
