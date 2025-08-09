@@ -77,6 +77,50 @@
         </div>
     </nav>
 
+    <!-- Universal Image Lightbox -->
+    <div id="img-lightbox" class="fixed inset-0 z-[110] hidden">
+        <div class="absolute inset-0 bg-black/70" data-close-image></div>
+        <img alt="Expanded image"
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[85vh] max-w-[90vw] rounded-lg shadow-2xl pointer-events-none">
+        <button class="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
+            data-close-image>✕</button>
+    </div>
+
+    <script>
+            (() => {
+                const box = document.getElementById('img-lightbox');
+                const img = box.querySelector('img');
+
+                // open on any element with data-zoom-src
+                document.addEventListener('click', e => {
+                    const el = e.target.closest('[data-zoom-src]');
+                    if (!el) return;
+                    e.preventDefault();
+                    img.src = el.dataset.zoomSrc || el.currentSrc || el.src;
+                    box.classList.remove('hidden');
+                    document.documentElement.classList.add('overflow-hidden');
+                });
+
+                // close handlers
+                box.addEventListener('click', e => {
+                    if (e.target.matches('[data-close-image], [data-close-image] *')) {
+                        box.classList.add('hidden');
+                        document.documentElement.classList.remove('overflow-hidden');
+                    }
+                });
+
+                // prevent clicks inside from bubbling to page handlers
+                box.querySelector('img').addEventListener('click', e => e.stopPropagation());
+
+                document.addEventListener('keydown', e => {
+                    if (e.key === 'Escape' && !box.classList.contains('hidden')) {
+                        box.classList.add('hidden');
+                        document.documentElement.classList.remove('overflow-hidden');
+                    }
+                });
+            })();
+    </script>
+
     <!-- Projects: start -->
     <div id="projects" class="sr-only" aria-hidden="true"></div>
 
@@ -447,8 +491,9 @@
                         </div>
                         <h4 class="font-semibold mt-4">Links</h4>
                         <ul class="list-disc pl-5 text-sm">
-                            <li><a href="#" class="underline">Integration GitHub Repo</a></li>
-                            <li><a href="#" class="underline">Home Assistant Dashboard YAML</a></li>
+                            <li><a href="https://github.com/B0st0wn/hass-unraid" class="underline" target="_blank">Integration GitHub
+                                    Repo</a></li>
+                            <!-- <li><a href="#" class="underline">Home Assistant Dashboard YAML</a></li> -->
                         </ul>
                     </div>
                 </section>
@@ -493,45 +538,57 @@
             </div>
         </div>
 
-        <div id="modal-content-pfsense">
-            <div class="space-y-6">
-                <header class="border-b pb-3">
-                    <h3 class="text-2xl font-semibold">pfSense VLAN &amp; Firewall</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Designed 5-VLAN network segmentation with reverse proxy for go2rtc and secure Cloudflare tunnel.
-                    </p>
-                </header>
-                <section class="grid md:grid-cols-2 gap-6">
-                    <div class="space-y-3">
-                        <h4 class="font-semibold">Overview</h4>
-                        <p>Implemented advanced network segmentation using pfSense to isolate critical services, enhance
-                            security,
-                            and enable flexible routing. Integrated reverse proxy and Cloudflare tunneling for secure,
-                            remote-friendly access to internal applications.</p>
-                        <ul class="list-disc pl-5 text-sm">
-                            <li>5 VLANs: main, camera, IoT, DMZ, and Unraid apps</li>
-                            <li>Firewall rules for inter-VLAN traffic control</li>
-                            <li>Reverse proxy for go2rtc WebRTC streams</li>
-                            <li>Cloudflare Tunnel for encrypted remote access</li>
-                        </ul>
-                    </div>
-                    <div class="space-y-3">
-                        <h4 class="font-semibold">Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">pfSense</span>
-                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">NGINX</span>
-                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Cloudflare Tunnel</span>
-                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">VLAN</span>
-                        </div>
-                        <h4 class="font-semibold mt-4">Links</h4>
-                        <ul class="list-disc pl-5 text-sm">
-                            <li><a href="#" class="underline">pfSense Config Backup</a></li>
-                            <li><a href="#" class="underline">Firewall Rule Map</a></li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
+<div id="modal-content-pfsense">
+  <div class="space-y-6">
+    <header class="border-b pb-3">
+      <h3 class="text-2xl font-semibold">pfSense VLAN &amp; Firewall</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        Designed 5-VLAN network segmentation with reverse proxy for go2rtc and secure Cloudflare tunnel.
+      </p>
+    </header>
+
+    <section class="grid md:grid-cols-2 gap-6">
+      <!-- Left column -->
+      <div class="space-y-3">
+        <h4 class="font-semibold">Overview</h4>
+        <p>Implemented advanced network segmentation using pfSense to isolate critical services, enhance security,
+          and enable flexible routing. Integrated reverse proxy and Cloudflare tunneling for secure, remote-friendly
+          access to internal applications.</p>
+        <ul class="list-disc pl-5 text-sm">
+          <li>5 VLANs: main, camera, IoT, DMZ, and Unraid apps</li>
+          <li>Firewall rules for inter-VLAN traffic control</li>
+          <li>Reverse proxy for go2rtc WebRTC streams</li>
+          <li>Cloudflare Tunnel for encrypted remote access</li>
+        </ul>
+      </div>
+
+      <!-- Right column: Stack + image (no Links) -->
+      <div class="space-y-4">
+        <div>
+          <h4 class="font-semibold">Stack</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">pfSense</span>
+            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">NGINX</span>
+            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Cloudflare Tunnel</span>
+            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">VLAN</span>
+          </div>
         </div>
+
+        <div>
+          <h4 class="font-semibold">Topology Diagram</h4>
+          <img
+            src="/img/pfsense-topology-thumb.png"
+            data-zoom-src="/img/pfsense-topology.jpg"
+            alt="pfSense VLAN and firewall topology diagram"
+            class="cursor-zoom-in rounded-lg shadow-md w-full max-h-64 object-cover">
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Click to view full-size.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
     </div>
     <!-- /templates -->
 
