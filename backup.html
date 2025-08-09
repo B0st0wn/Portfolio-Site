@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systems Engineer | Professional Resume</title>
+  <meta name="description" content="Professional resume of a Systems Engineer with 16 years of IT experience">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: "#111111",
+            secondary: "#222222",
+            dark: "#0a0a0a",
+            light: "#f8fafc"
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .active-tab {
+      border-bottom: 3px solid;
+      font-weight: 600;
+    }
+
+    .dark .active-tab {
+      border-color: #ffffff;
+    }
+
+    .light .active-tab {
+      border-color: #000000;
+    }
+
+    .section {
+      scroll-margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body class="dark:bg-dark dark:text-gray-200 bg-light text-gray-800 transition-colors duration-300">
+  <!-- Sticky Navigation -->
+  <nav class="sticky-nav dark:bg-dark bg-white shadow-lg">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <div class="flex space-x-8">
+          <a href="#home"
+            class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link active-tab">
+            <i class="fas fa-home mr-2"></i>Home
+          </a>
+          <a href="#resume"
+            class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link">
+            <i class="fas fa-file-alt mr-2"></i>Resume
+          </a>
+          <a href="#contact"
+            class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link">
+            <i class="fas fa-envelope mr-2"></i>Contact
+          </a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
+          <i id="theme-icon" class="fas fa-moon text-xl dark:text-yellow-300 text-gray-700"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="section py-16 dark:bg-dark bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+          <img
+            src="https://images.creativemarket.com/0.1.0/ps/7468846/1820/1213/m1/fpnw/wm0/img_4955cm-.jpg?1576505994&s=8203b61e48c361620301ba485d18d2e2"
+            alt="Circuit board background representing technical expertise"
+            class="rounded-full border-4 dark:border-gray-700 border-gray-300 shadow-xl w-64 h-64 object-cover">
+        </div>
+        <div class="md:w-2/3 md:pl-12">
+          <h1 class="text-4xl font-bold dark:text-white text-gray-900 mb-4">Paul Halon</h1>
+
+          <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+            Computer engineer with 16 years’ experience, specializing in Microsoft Entra identity &amp; access
+            management and endpoint solutions.
+          </p>
+
+          <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+            Automation &amp; scripting pro using PowerShell, Python and VBScript. Experienced in SCCM,
+            privilege-management, Symantec Ghost, Dell KACE, Active Directory, Intune, Azure AD, Exchange, Visio and
+            Project.
+          </p>
+
+          <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+            Proven troubleshooting skills across hardware, software and networks—with remote support for Windows (client
+            &amp; server), macOS, Linux and mobile platforms.
+          </p>
+
+          <p class="text-xl dark:text-gray-300 text-gray-700">
+            Outside work: custom PC builds, ham radio &amp; electronics tinkering, dirt biking with family, and life
+            with Aurora, our Border Collie–Pitbull mix.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section py-16 dark:bg-primary bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Technical Skills</h2>
+
+      <!-- Projects Button -->
+      <div class="col-span-1 md:col-span-2 text-center mt-8">
+        <a href="/projects/"
+          class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition duration-300">
+          View Projects
+        </a>
+      </div>
+      <br>
+      <br>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Start Skills -->
+        <!-- Operating Systems @ 90% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Operating Systems</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">90%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-blue-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="90%"></div>
+          </div>
+        </div>
+
+        <!-- Scripting & Automation @ 90% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Scripting &amp; Automation</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">90%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-orange-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="90%"></div>
+          </div>
+        </div>
+
+        <!-- Endpoint & System Management @ 85% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Endpoint &amp; System Management</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">85%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-yellow-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="85%"></div>
+          </div>
+        </div>
+
+        <!-- Cloud & Identity Management @ 80% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Cloud &amp; Identity Management</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-green-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="80%"></div>
+          </div>
+        </div>
+
+        <!-- Networking & Security @ 80% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Networking &amp; Security</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-red-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="80%"></div>
+          </div>
+        </div>
+
+        <!-- Endpoint Security & Compliance @ 80% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Endpoint Security &amp; Compliance</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-teal-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="80%"></div>
+          </div>
+        </div>
+
+        <!-- Patch Management & Compliance @ 80% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Patch Management &amp; Compliance</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-amber-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="80%"></div>
+          </div>
+        </div>
+
+        <!-- Collaboration & Productivity Tools @ 75% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Collaboration &amp; Productivity Tools</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">75%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-indigo-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="75%"></div>
+          </div>
+        </div>
+
+        <!-- Website Design @ 70% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Website Design</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">70%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-pink-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="70%"></div>
+          </div>
+        </div>
+
+        <!-- Monitoring & Alerting Systems @ 60% -->
+        <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+          <div class="flex justify-between mb-2">
+            <span class="dark:text-gray-300 text-gray-700">Monitoring &amp; Alerting Systems</span>
+            <span class="font-medium dark:text-gray-300 text-gray-700">60%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div class="skill-bar-fill h-2 rounded-full bg-lime-500 transition-all duration-1000 ease-out"
+              style="width: 0;" data-width="60%"></div>
+          </div>
+        </div>
+        <!-- End Skills -->
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bars = document.querySelectorAll('.skill-bar-fill');
+
+      const obs = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const bar = entry.target;
+          const target = bar.getAttribute('data-width');
+          const overshoot = Math.min(parseFloat(target) * 1.1, 100) + '%';
+
+          bar.animate([
+            { width: '0%' },
+            { width: overshoot },
+            { width: target }
+          ], {
+            duration: 900,
+            easing: 'ease-out',
+            fill: 'forwards'
+          });
+
+          observer.unobserve(bar);
+        });
+      }, {
+        threshold: 0.2  // trigger when ~20% of the bar is in view
+      });
+
+      bars.forEach(bar => {
+        // ensure initial state
+        bar.style.width = '0';
+        obs.observe(bar);
+      });
+    });
+  </script>
+
+  <!-- Resume Section -->
+  <section id="resume" class="section py-16 dark:bg-primary bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Professional Resume</h2>
+
+      <!-- Work Experience -->
+      <div>
+        <h3
+          class="text-2xl font-semibold mb-6 pb-2 border-b dark:border-gray-700 border-gray-300 dark:text-white text-gray-900">
+          Work Experience
+        </h3>
+        <div class="space-y-3">
+          <!-- Current Job -->
+          <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h4 class="text-xl font-medium dark:text-white text-gray-900">Endpoint Management Engineer
+              </h4>
+              <span class="dark:text-gray-400 text-gray-600">2023 – Present</span>
+            </div>
+            <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+              Catholic Charities New Hampshire, Manchester, NH
+            </p>
+            <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+              <li>Administer hybrid Azure AD join and Intune MDM enrollment across all supported devices
+              </li>
+              <li>Deploy and maintain automated support tools, including a custom PowerShell-based
+                Helpdesk Button with Outlook integration</li>
+              <li>Replaced legacy email-based support with a structured ticketing system to streamline IT
+                workflows</li>
+              <li>Create, update, and troubleshoot Group Policy Objects for security, software
+                configuration, and user environment management</li>
+              <li>Manage browser settings and controls through GPO for standardization and compliance</li>
+              <li>Develop PowerShell scripts for automation, diagnostics, and policy enforcement</li>
+              <li>Support identity, access, and device compliance initiatives through Azure AD and Intune
+                policies</li>
+              <li>Troubleshoot and resolve advanced system administration issues related to enrollment,
+                policy application, and authentication</li>
+            </ul>
+          </div>
+
+          <!-- Enterprise Engineering Technician -->
+          <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h4 class="text-xl font-medium dark:text-white text-gray-900">Enterprise Engineering
+                Technician</h4>
+              <span class="dark:text-gray-400 text-gray-600">2022 – 2023</span>
+            </div>
+            <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+              State of New Hampshire, Concord, NH
+            </p>
+            <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+              <li>Troubleshoot and resolve desktop-related hardware and software issues, documenting
+                solutions for future reference</li>
+              <li>Assemble, configure, and install computer hardware, software, and peripherals</li>
+              <li>Plan and execute large-scale desktop computer moves, ensuring internal checks and
+                controls are completed</li>
+              <li>Maintain accurate inventory and floor plans of desktop equipment in assigned locations
+              </li>
+              <li>Collaborate with state agencies and vendors to address computer hardware and software
+                problems, including warranty services</li>
+              <li>Provide technical support and training to departmental staff and end-users on computer
+                hardware, software, and peripherals, ensuring compliance with standards</li>
+              <li>Evaluate and recommend network and desktop hardware and software acquisitions</li>
+              <li>Monitor help desk tickets, assigning and resolving issues or delegating to appropriate
+                technicians</li>
+            </ul>
+          </div>
+
+          <!-- Information Technology Administrator -->
+          <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h4 class="text-xl font-medium dark:text-white text-gray-900">Information Technology
+                Administrator</h4>
+              <span class="dark:text-gray-400 text-gray-600">2018 – 2021</span>
+            </div>
+            <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+              Brooks Automation, Chelmsford, MA
+            </p>
+            <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+              <li>Manage Active Directory functions such as password resets, user management, and
+                permissions</li>
+              <li>Use Dell KACE to image laptops and desktops for users</li>
+              <li>Provide deskside and phone support through Telax and remote support using Dame
+                Ware/Teamviewer</li>
+              <li>Write automation scripts for imaging process</li>
+              <li>Support large-scale manufacturing floor</li>
+              <li>Map network drives and manage permissions</li>
+              <li>Create and support XP VMs using VMware to run legacy software in a quarantined
+                environment</li>
+              <li>Large scale hardware refresh/windows 10 deployment/upgrade</li>
+            </ul>
+          </div>
+
+          <!-- Computer Repair Escalation Technician -->
+          <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Repair Escalation
+                Technician</h4>
+              <span class="dark:text-gray-400 text-gray-600">2012 – 2018</span>
+            </div>
+            <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+              PlumChoice Inc., Lowell, MA
+            </p>
+            <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+              <li>Provide phone support to end-users in a call center environment</li>
+              <li>Support remote users using Bomgar software</li>
+              <li>Work one-on-one with consumers and retail management to resolve technical issues</li>
+              <li>Handle retention and consumer relations for end-users</li>
+              <li>Collaborate with tier 2 technicians to resolve complex issues</li>
+              <li>Conduct diagnostic tests and assist with sales related to PC issues</li>
+            </ul>
+          </div>
+
+          <!-- Computer Technician (2011–2012) -->
+          <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Technician</h4>
+              <span class="dark:text-gray-400 text-gray-600">2011 – 2012</span>
+            </div>
+            <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+              Nerologica Inc., Danvers, MA
+            </p>
+            <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+              <li>Active Directory: Perform password resets and manage user accounts</li>
+              <li>Image laptops and desktops for users</li>
+              <li>Provide deskside and phone support to assist users with software installation,
+                troubleshooting, network connection, and email setup</li>
+            </ul>
+          </div>
+
+          <!-- Computer Technician (2010–2011) -->
+          <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Technician</h4>
+              <span class="dark:text-gray-400 text-gray-600">2010 – 2011</span>
+            </div>
+            <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
+              University of Massachusetts Lowell
+            </p>
+            <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+              <li>Active Directory: Perform password resets and manage user accounts</li>
+              <li>Image laptops and desktops for users</li>
+              <li>Provide deskside and phone support to assist users with software installation,
+                troubleshooting, network connection, and email setup</li>
+              <li>Assist with class login and schedule issues</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="height: 3rem;"></div>
+
+      <!--Resume Download-->
+      <div class="text-center mb-12">
+        <a href="/files/Paul_Hanlon_Resume.pdf" download
+          class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition duration-300">
+          Download PDF Resume
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section py-16 dark:bg-dark bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Get In Touch</h2>
+      <div class="max-w-2xl mx-auto">
+
+        <div class="mt-8 text-center">
+          <p class="dark:text-gray-300 text-gray-700 mb-4">Connect with me through:</p>
+          <div class="flex justify-center space-x-6">
+            <a href="https://www.linkedin.com/in/paul-hanlon-11863a1a5/" target="_blank" rel="noopener noreferrer"
+              class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition duration-300">
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <a href="https://github.com/B0st0wn" target="_blank" rel="noopener noreferrer"
+              class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition duration-300">
+              <i class="fab fa-github text-2xl"></i>
+            </a>
+            <a href="https://www.facebook.com/paulfhanlon/" target="_blank" rel="noopener noreferrer"
+              class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition duration-300">
+              <i class="fab fa-facebook text-2xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <div style="height: 1rem;"></div>
+        <p class="dark:text-gray-300 text-gray-700 mb-4 text-center">Or send me an email.</p>
+
+        <!-- Email Form -->
+        <form id="contactForm" class="dark:bg-primary bg-gray-100 p-8 rounded-lg shadow-md"
+          onsubmit="return sendMail();">
+          <div class="mb-6">
+            <label for="name" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Name</label>
+            <input type="text" id="name"
+              class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+              required>
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Email</label>
+            <input type="email" id="email"
+              class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+              required>
+          </div>
+          <div class="mb-6">
+            <label for="subject" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Subject</label>
+            <input type="text" id="subject"
+              class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+              required>
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Message</label>
+            <textarea id="message" rows="5"
+              class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+              required></textarea>
+          </div>
+          <button type="submit"
+            class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition duration-300">
+            Send Message
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function sendMail() {
+      const name = encodeURIComponent(document.getElementById('name').value);
+      const email = encodeURIComponent(document.getElementById('email').value);
+      const subject = encodeURIComponent(document.getElementById('subject').value);
+      const message = encodeURIComponent(document.getElementById('message').value);
+
+      const mailtoLink = `mailto:paul@hanlonhouse.us?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
+
+      window.location.href = mailtoLink;
+      return false; // Prevent form default submission
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer class="dark:bg-black bg-gray-800 dark:text-gray-400 text-gray-300 py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; <span id="currentYear"></span> Hanlon House.</p>
+
+      <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+      </script>
+
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or use preferred color scheme
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      html.classList.remove('dark');
+      html.classList.add('light');
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Tab navigation functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabs = document.querySelectorAll('.tab-link');
+      const sections = document.querySelectorAll('.section');
+
+      // Set active tab based on scroll position
+      function setActiveTab() {
+        let currentSection = '';
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+
+        tabs.forEach(tab => {
+          tab.classList.remove('active-tab');
+          if (tab.getAttribute('href') === `#${currentSection}`) {
+            tab.classList.add('active-tab');
+          }
+        });
+      }
+
+      // Smooth scrolling for navigation links
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+
+          window.scrollTo({
+            top: targetSection.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Update active tab on scroll
+      window.addEventListener('scroll', setActiveTab);
+
+      // Initialize active tab
+      setActiveTab();
+    });
+  </script>
+</body>
+
+</html>

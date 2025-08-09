@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/sites/">
+    <link rel="icon" href="/fav/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/fav/favicon.png" type="image/png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hanlon Sites | Dark/Light Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#111111",
+                        secondary: "#222222",
+                        dark: "#0a0a0a",
+                        light: "#f8fafc",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .active-tab {
+            border-bottom: 3px solid;
+            font-weight: 600;
+        }
+
+        .dark .active-tab {
+            border-color: #ffffff;
+        }
+
+        .light .active-tab {
+            border-color: #000000;
+        }
+    </style>
+</head>
+
+<body class="dark:bg-dark dark:text-gray-200 bg-light text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="sticky-nav dark:bg-dark bg-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex space-x-8">
+                <a href="#home"
+                    class="tab-link active-tab py-2 px-3 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300">Home</a>
+                <a href="#cards"
+                    class="tab-link active-tab py-2 px-3 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300">Gone</a>
+            </div>
+            <button id="theme-toggle" class="p-2 rounded-full focus:outline-none" aria-label="Toggle dark/light theme">
+                <i id="theme-icon" class="fas fa-moon text-xl dark:text-yellow-300 text-gray-700"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Site Below -->
+     
+    <!-- Site Above -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Theme toggle setup
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+        const html = document.documentElement;
+
+        function setTheme(theme) {
+            if (theme === "dark") {
+                html.classList.add("dark");
+                html.classList.remove("light");
+                themeIcon.classList.replace("fa-moon", "fa-sun");
+            } else {
+                html.classList.add("light");
+                html.classList.remove("dark");
+                themeIcon.classList.replace("fa-sun", "fa-moon");
+            }
+            localStorage.setItem("theme", theme);
+        }
+
+        // On load: apply stored or system preference
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                setTheme(prefersDark ? "dark" : "light");
+            }
+        })();
+
+        themeToggle.addEventListener("click", () => {
+            if (html.classList.contains("dark")) {
+                setTheme("light");
+            } else {
+                setTheme("dark");
+            }
+        });
+    </script>
+</body>
+
+</html>
