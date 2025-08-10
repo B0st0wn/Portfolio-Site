@@ -19,9 +19,9 @@
   background: #ffffff;
   transform-origin: center;
   transform: rotateX(0deg);
-  transition: transform 650ms cubic-bezier(.22,.61,.36,1), opacity 150ms ease;
+  transition: transform 650ms cubic-bezier(.22,.61,.36,1); /* no flap opacity fade needed */
   will-change: transform;
-  z-index: 2;
+  z-index: 2;                        /* flaps above content */
   box-shadow: 0 1px 0 rgba(0,0,0,.08) inset;
   backface-visibility: hidden;       /* no weird triangles */
 }
@@ -32,18 +32,15 @@
 /* Dark mode surface for flaps */
 html.dark .reveal-frame .flap { background: #0a0a0a; }
 
-/* Content is hidden (collapsed) until frame is .open */
+/* Content starts collapsed, no fade */
 .reveal-frame .reveal-content {
   position: relative;
-  z-index: 1;
+  z-index: 1;                        /* content below flaps */
   max-height: 0;
-  opacity: 0;
   overflow: hidden;
   pointer-events: none;
-  transition:
-    max-height 700ms cubic-bezier(.22,.61,.36,1),
-    opacity 250ms ease;
-  background: transparent; /* keep page bg showing during fold */
+  transition: max-height 700ms cubic-bezier(.22,.61,.36,1);
+  background: transparent;
 }
 
 /* When opened: flaps fold away; content expands */
@@ -51,7 +48,6 @@ html.dark .reveal-frame .flap { background: #0a0a0a; }
 .reveal-frame.open .flap.bottom { transform: rotateX(92deg); }
 .reveal-frame.open .reveal-content {
   max-height: 5000px;   /* big number so tall grids can expand */
-  opacity: 1;
   pointer-events: auto;
 }
 
@@ -71,18 +67,17 @@ html.dark .reveal-frame::before { background: rgba(255,255,255,.06); }
 /* Prevent layout jump – shows a small closed “panel” instead of empty gap */
 #projects .container { position: relative; }
 
-/* Keep the projects content above the flaps */
+/* IMPORTANT: content stays BELOW flaps (remove any previous z-index:2 override) */
 #projects-reveal .reveal-content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
-/* Flaps vanish entirely after animation – handled by JS adding .flaps-gone */
+/* Flaps vanish entirely after animation – JS adds .flaps-gone once transform ends */
 #projects-reveal.flaps-gone .flap {
   display: none;
 }
 
-/* REMOVE the instant hide on open – was causing flash-open */
-#projects-reveal.open .flap {
-  /* opacity: 0; visibility: hidden; */ /* removed so flaps stay visible */
-}
+/* NO instant hide on open (kept visible so they cover content during the fold) */
+/* (intentionally empty)
+#projects-reveal.open .flap { }

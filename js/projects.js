@@ -6,14 +6,15 @@
 
   const onFlapDone = (e) => {
     if (e.propertyName !== 'transform' || !e.target.classList.contains('flap')) return;
-    if (frame.classList.contains('open')) frame.classList.add('flaps-gone'); // hide after opening
+    if (frame.classList.contains('open')) frame.classList.add('flaps-gone');
     frame.removeEventListener('transitionend', onFlapDone);
   };
 
   const open = (scrollInto = true) => {
     if (frame.classList.contains('open')) return;
-    frame.classList.remove('flaps-gone');      // ensure flaps exist before animating open
-    frame.classList.add('open');
+    frame.classList.remove('flaps-gone');  // flaps are back in closed state
+    void frame.offsetWidth;                // << force reflow so closed state is painted
+    frame.classList.add('open');            // now animate to open state
     frame.addEventListener('transitionend', onFlapDone);
     trigger.setAttribute('aria-expanded', 'true');
     if (scrollInto) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -23,7 +24,7 @@
   const close = () => {
     if (!frame.classList.contains('open')) return;
     frame.classList.remove('open');
-    frame.classList.remove('flaps-gone');      // bring flaps back for the close animation
+    frame.classList.remove('flaps-gone');
     trigger.setAttribute('aria-expanded', 'false');
   };
 
