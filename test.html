@@ -275,188 +275,326 @@
                     <div class="py-12">
                         <h2 class="text-3xl font-bold mb-8">Projects</h2>
 
-                        <!-- Work: start -->
-                        <section aria-labelledby="work-projects">
-                            <h2 id="work-projects" class="text-2xl font-bold mb-4">Work</h2>
-                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition-colors transition-shadow duration-300">
-                                    <a href="#" class="block" data-modal-target="#modal-content-intune-m365">
-                                        <img loading="lazy"
-                                            src="https://mssolutions.ca/wp-content/uploads/2023/09/Microsoft-Intune-1024x683.png"
-                                            alt="Laptop fleet management"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition duration-300">
-                                        <div class="p-6">
-                                            <h3 class="text-xl font-semibold mb-2 transition-colors duration-300">Intune
-                                                & M365
-                                                Deployment</h3>
-                                            <p
-                                                class="text-gray-600 dark:text-gray-300 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-gray-100">
-                                                Joined 700 endpoints to Azure AD & deployed Microsoft 365 applications
-                                                organization-wide.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm transition-colors duration-300 group-hover:bg-emerald-900 group-hover:text-white">Intune</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm transition-colors duration-300 group-hover:bg-emerald-900 group-hover:text-white">Microsoft
-                                                    365</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                        <!-- Modal for Intune & M365 Deployment -->
+                        <div id="modal-content-intune-m365" class="hidden">
+                            <div class="space-y-6">
+                                <header class="border-b pb-3">
+                                    <h3 class="text-2xl font-semibold">Intune & Microsoft 365 Deployment</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                                        Seamless fleet onboarding and productivity suite rollout.
+                                    </p>
+                                </header>
 
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition-colors transition-shadow duration-300">
-                                    <a href="#" class="block" data-modal-target="#modal-content-helpdesk-button">
-                                        <img loading="lazy"
-                                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1273&auto=format&fit=crop&ixlib=rb-4.1.0"
-                                            alt="Support workflow on a workstation"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition duration-300">
-                                        <div class="p-6">
-                                            <h3 class="text-xl font-semibold mb-2 transition-colors duration-300">
-                                                Helpdesk
-                                                Button (PowerShell GUI)</h3>
-                                            <p
-                                                class="text-gray-600 dark:text-gray-300 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-gray-100">
-                                                One-click support intake that emails tickets with auto-collected
-                                                diagnostics.
-                                            </p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm transition-colors duration-300 group-hover:bg-emerald-900 group-hover:text-white">PowerShell</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm transition-colors duration-300 group-hover:bg-emerald-900 group-hover:text-white">WinForms</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm transition-colors duration-300 group-hover:bg-emerald-900 group-hover:text-white">Outlook/SMTP</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                <section class="grid md:grid-cols-2 gap-6">
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Overview</h4>
+                                        <p>
+                                            Migrated 700 corporate endpoints to hybrid Azure AD join and enrolled in
+                                            Intune for
+                                            centralized device
+                                            management. Deployed Microsoft 365 applications, configured baseline
+                                            security policies, and
+                                            enabled
+                                            self-service device provisioning.
+                                        </p>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Hybrid Azure AD join with automatic Intune enrollment</li>
+                                            <li>Custom compliance policies & conditional access rules</li>
+                                            <li>Deployment of Office apps via Endpoint Manager</li>
+                                            <li>User training & post-deployment support</li>
+                                        </ul>
+                                    </div>
 
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition-colors transition-shadow duration-300">
-                                    <a href="#" class="block" data-modal-target="#modal-content-kiosk-upgrade">
-                                        <img loading="lazy"
-                                            src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0"
-                                            alt="Windows deployment in progress"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition duration-300">
-                                        <div class="p-6">
-                                            <h3 class="text-xl font-semibold mb-2 transition-colors duration-300">Mass
-                                                Kiosk
-                                                Windows 10 → 11 Upgrade</h3>
-                                            <p
-                                                class="text-gray-600 dark:text-gray-300 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-gray-100">
-                                                Automated multi-site kiosk upgrades using Clonezilla imaging pipeline.
-                                            </p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm transition-colors duration-300 group-hover:bg-emerald-900 group-hover:text-white">Clonezilla</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm transition-colors duration-300 group-hover:bg-emerald-900 group-hover:text-white">Windows
-                                                    11</span>
-                                            </div>
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Stack</h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Intune</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Azure AD</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Microsoft 365
+                                                Apps</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Endpoint
+                                                Manager</span>
                                         </div>
-                                    </a>
-                                </div>
+                                        <h4 class="font-semibold mt-4">Links</h4>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li><a href="#" class="underline">Deployment Runbook</a></li>
+                                            <li><a href="#" class="underline">Post-Deployment Metrics</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
                             </div>
-                        </section>
-                        <!-- Work: end -->
+                        </div>
 
-                        <!-- Home: start -->
-                        <section aria-labelledby="home-projects">
-                            <h2 id="home-projects" class="text-2xl font-bold mb-4">Home</h2>
-                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition-colors transition-shadow duration-300">
-                                    <a href="#" class="block" data-modal-target="#modal-content-unraid">
-                                        <img loading="lazy" src="http://hanlonhouse.us/img/unraid.png"
-                                            alt="Unraid server rack"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition duration-300">
-                                        <div class="p-6">
-                                            <h3 class="text-xl font-semibold mb-2 transition-colors duration-300">Unraid
-                                                NAS
-                                                Monitoring</h3>
-                                            <p
-                                                class="text-gray-600 dark:text-gray-300 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-gray-100">
-                                                Published disk health, network throughput, and VM status to MQTT for
-                                                Home
-                                                Assistant dashboards.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Unraid</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Python</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                        <!-- Modal for Helpdesk Button -->
+                        <div id="modal-content-helpdesk-button" class="hidden">
+                            <div class="space-y-6">
+                                <header class="border-b pb-3">
+                                    <h3 class="text-2xl font-semibold">Helpdesk Button (PowerShell GUI)</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Streamlined ticket creation with
+                                        system context
+                                        baked in.
+                                    </p>
+                                </header>
 
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition-colors transition-shadow duration-300">
-                                    <a href="#" class="block" data-modal-target="#modal-content-home-assistant">
-                                        <img loading="lazy"
-                                            src="https://www.home-assistant.io/images/default-social.png"
-                                            alt="Home Assistant dashboard on tablet"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition duration-300">
-                                        <div class="p-6">
-                                            <h3 class="text-xl font-semibold mb-2 transition-colors duration-300">Home
-                                                Assistant
-                                                Dashboard</h3>
-                                            <p
-                                                class="text-gray-600 dark:text-gray-300 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-gray-100">
-                                                YAML-mode dashboard with auto-entities for Unraid sensors and two-way
-                                                audio via
-                                                go2rtc.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Home
-                                                    Assistant</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">YAML</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                <section class="grid md:grid-cols-2 gap-6">
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Overview</h4>
+                                        <p>
+                                            Windows Forms app triggered from Start Menu/Desktop. Captures user input and
+                                            auto-gathers
+                                            device telemetry
+                                            (uptime, disk/free space, IP, hardware IDs). Packages artifacts and submits
+                                            via Outlook
+                                            (MAPI) or falls
+                                            back to SMTP.
+                                        </p>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Prefills email to <code>tickets@nh-cc.org</code> with
+                                                attachments/screens</li>
+                                            <li>Silent retry & SMTP fallback if Outlook isn’t configured</li>
+                                            <li>Versioned build pipeline; signed script; per-user and machine installs
+                                            </li>
+                                            <li>Deployed via Intune/SCCM with health checks and self-heal</li>
+                                        </ul>
+                                    </div>
 
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition-colors transition-shadow duration-300">
-                                    <a href="#" class="block" data-modal-target="#modal-content-pfsense">
-                                        <img loading="lazy"
-                                            src="https://blog.domotz.com/wp-content/uploads/2023/01/pfsense-blog-header.jpg"
-                                            alt="pfSense firewall device"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition duration-300">
-                                        <div class="p-6">
-                                            <h3 class="text-xl font-semibold mb-2 transition-colors duration-300">
-                                                pfSense VLAN
-                                                &amp; Firewall</h3>
-                                            <p
-                                                class="text-gray-600 dark:text-gray-300 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-gray-100">
-                                                Designed 5-VLAN network segmentation with reverse proxy for go2rtc and
-                                                secure
-                                                Cloudflare tunnel.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">pfSense</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">NGINX</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Cloudflare</span>
-                                            </div>
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Stack</h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span
+                                                class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PowerShell</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">WinForms</span>
+                                            <span
+                                                class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Graph/SMTP</span>
+                                            <span
+                                                class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Intune/SCCM</span>
                                         </div>
-                                    </a>
-                                </div>
+
+                                        <h4 class="font-semibold mt-4">Screenshot</h4>
+                                        <a href="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                            target="_blank" class="block">
+                                            <picture>
+                                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                                    alt="Helpdesk Button GUI preview"
+                                                    class="w-full h-40 object-cover rounded-md ring-1 ring-gray-200 dark:ring-gray-700 cursor-zoom-in">
+                                            </picture>
+                                            <span class="sr-only">Open full-size image in a new tab</span>
+                                        </a>
+
+                                        <h4 class="font-semibold mt-4">Links</h4>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li><a href="#" class="underline">Deployment Runbook</a></li>
+                                            <li><a href="#" class="underline">Build & Signing Pipeline</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
                             </div>
-                        </section>
-                        <!-- Home: end -->
-                    </div>
-                </div> <!-- /reveal-content -->
-            </div> <!-- /reveal-frame -->
+                        </div>
 
-        </div>
+                        <!-- Modal for Mass Kiosk Upgrade -->
+                        <div id="modal-content-kiosk-upgrade" class="hidden">
+                            <div class="space-y-6">
+                                <header class="border-b pb-3">
+                                    <h3 class="text-2xl font-semibold">Mass Kiosk Windows 10 → 11 Upgrade</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                                        Enterprise-scale OS refresh leveraging image-based deployment.
+                                    </p>
+                                </header>
+
+                                <section class="grid md:grid-cols-2 gap-6">
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Overview</h4>
+                                        <p>
+                                            Planned and executed a mass upgrade of kiosk endpoints from Windows 10 to
+                                            Windows 11 across
+                                            multiple
+                                            facilities. Standardized gold image captured via Clonezilla with
+                                            proportional restore
+                                            enabled for varying
+                                            disk sizes. Deployments were zero-touch once booted into PXE or USB imaging
+                                            media.
+                                        </p>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Created and validated Win 11 kiosk master image with all required apps
+                                                and lockdown
+                                                settings</li>
+                                            <li>Optimized Clonezilla boot scripts for proportional resizing and rapid
+                                                restore</li>
+                                            <li>Integrated pre/post imaging scripts for hostname and network
+                                                configuration</li>
+                                            <li>Automated post-restore health checks before site sign-off</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Stack</h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span
+                                                class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Clonezilla</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">GRUB</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Windows
+                                                11</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PXE Boot</span>
+                                        </div>
+                                        <h4 class="font-semibold mt-4">Links</h4>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li><a href="#" class="underline">Imaging Runbook</a></li>
+                                            <li><a href="#" class="underline">Master Image Config</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
+                        <div id="modal-content-unraid">
+                            <div class="space-y-6">
+                                <header class="border-b pb-3">
+                                    <h3 class="text-2xl font-semibold">Unraid NAS Monitoring</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                                        Published disk health, network throughput, and VM status to MQTT for Home
+                                        Assistant dashboards.
+                                    </p>
+                                </header>
+                                <section class="grid md:grid-cols-2 gap-6">
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Overview</h4>
+                                        <p>Developed a custom integration that pulls real-time Unraid system metrics and
+                                            publishes them
+                                            to MQTT,
+                                            enabling detailed Home Assistant dashboards for storage, network, and
+                                            virtualization
+                                            monitoring.</p>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Disk S.M.A.R.T. health and temperature tracking</li>
+                                            <li>Live network throughput per active interface</li>
+                                            <li>VM power state, vCPU, memory, and IP address reporting</li>
+                                        </ul>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Stack</h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Unraid</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">MQTT</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Python</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Home
+                                                Assistant</span>
+                                        </div>
+                                        <h4 class="font-semibold mt-4">Links</h4>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li><a href="https://github.com/B0st0wn/hass-unraid" class="underline"
+                                                    target="_blank">Integration GitHub
+                                                    Repo</a></li>
+                                            <!-- <li><a href="#" class="underline">Home Assistant Dashboard YAML</a></li> -->
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
+                        <div id="modal-content-home-assistant">
+                            <div class="space-y-6">
+                                <header class="border-b pb-3">
+                                    <h3 class="text-2xl font-semibold">Home Assistant Dashboard</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                                        YAML-mode dashboard with Unraid sensors, auto-entities, and go2rtc two-way audio
+                                        controls.
+                                    </p>
+                                </header>
+                                <section class="grid md:grid-cols-2 gap-6">
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Overview</h4>
+                                        <p>Built a fully customized Home Assistant dashboard in YAML mode. Includes
+                                            auto-entities to
+                                            display
+                                            Unraid disk and VM data, network throughput, and live go2rtc streams with
+                                            two-way audio.</p>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>Dynamic entity filtering for disk sensors</li>
+                                            <li>Integrated Unraid MQTT telemetry</li>
+                                            <li>WebRTC for low-latency audio/video</li>
+                                        </ul>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Stack</h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Home
+                                                Assistant</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">YAML</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">MQTT</span>
+                                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">go2rtc</span>
+                                        </div>
+                                        <h4 class="font-semibold mt-4">Links</h4>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li><a href="#" class="underline">View YAML config</a></li>
+                                            <li><a href="#" class="underline">MQTT sensor list</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
+                        <div id="modal-content-pfsense">
+                            <div class="space-y-6">
+                                <header class="border-b pb-3">
+                                    <h3 class="text-2xl font-semibold">pfSense VLAN &amp; Firewall</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                                        Designed 5-VLAN network segmentation with reverse proxy for go2rtc and secure
+                                        Cloudflare tunnel.
+                                    </p>
+                                </header>
+
+                                <section class="grid md:grid-cols-2 gap-6">
+                                    <!-- Left column -->
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">Overview</h4>
+                                        <p>Implemented advanced network segmentation using pfSense to isolate critical
+                                            services, enhance
+                                            security,
+                                            and enable flexible routing. Integrated reverse proxy and Cloudflare
+                                            tunneling for secure,
+                                            remote-friendly
+                                            access to internal applications.</p>
+                                        <ul class="list-disc pl-5 text-sm">
+                                            <li>5 VLANs: main, camera, IoT, DMZ, and Unraid apps</li>
+                                            <li>Firewall rules for inter-VLAN traffic control</li>
+                                            <li>Reverse proxy for go2rtc WebRTC streams</li>
+                                            <li>Cloudflare Tunnel for encrypted remote access</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Right column: Stack + image (no Links) -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="font-semibold">Stack</h4>
+                                            <div class="flex flex-wrap gap-2">
+                                                <span
+                                                    class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">pfSense</span>
+                                                <span
+                                                    class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">NGINX</span>
+                                                <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Cloudflare
+                                                    Tunnel</span>
+                                                <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">VLAN</span>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="font-semibold">Topology Diagram</h4>
+                                            <a href="/img/pfsense-topology.png" target="_blank" class="block">
+                                                <picture>
+                                                    <img src="/img/pfsense-topology.png"
+                                                        alt="pfSense VLAN and firewall topology diagram"
+                                                        class="w-full h-40 object-cover rounded-md ring-1 ring-gray-200 dark:ring-gray-700 cursor-zoom-in">
+                                                </picture>
+                                                <span class="sr-only">Open full-size image in a new tab</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div> <!-- /reveal-frame -->
+
+                </div>
     </section>
 
     <!-- Hidden templates for project detail modal -->
