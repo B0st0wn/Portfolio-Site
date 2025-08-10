@@ -1,7 +1,7 @@
-// Two-sheet sliding reveal controller
+// Single-wall sliding reveal controller
 (() => {
   const trigger = document.getElementById('projects-trigger');
-  const frame   = document.getElementById('projects-reveal');
+  const frame = document.getElementById('projects-reveal');
   const section = document.getElementById('projects');
   if (!trigger || !frame || !section) return;
 
