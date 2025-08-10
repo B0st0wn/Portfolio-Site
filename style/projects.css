@@ -19,7 +19,7 @@
   background: #ffffff;
   transform-origin: center;
   transform: rotateX(0deg);
-  transition: transform 650ms cubic-bezier(.22,.61,.36,1), opacity 150ms ease;
+  transition: transform 1200ms cubic-bezier(.22,.61,.36,1), opacity 150ms ease;
   will-change: transform;
   z-index: 2;
   box-shadow: 0 1px 0 rgba(0,0,0,.08) inset;
@@ -41,8 +41,8 @@ html.dark .reveal-frame .flap { background: #0a0a0a; }
   overflow: hidden;
   pointer-events: none;
   transition:
-    max-height 700ms cubic-bezier(.22,.61,.36,1),
-    opacity 250ms ease;
+    max-height 1400ms cubic-bezier(.22,.61,.36,1),
+    opacity 500ms ease;
   background: transparent; /* keep page bg showing during fold */
 }
 
