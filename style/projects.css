@@ -4,13 +4,10 @@
 .reveal-frame {
   position: relative;
   margin-top: 1.5rem;
-  perspective: 1200px;
-  /* gives the flap fold some depth */
+  perspective: 1200px; /* gives the flap fold some depth */
   border-radius: 0.75rem;
-  overflow: hidden;
-  /* keep flaps clipped */
-  transform-style: preserve-3d;
-  /* smoother 3D animation */
+  overflow: hidden; /* keep flaps clipped */
+  transform-style: preserve-3d; /* smoother 3D animation */
 }
 
 /* Flaps cover the content when closed */
@@ -22,12 +19,12 @@
   background: #ffffff;
   transform-origin: center;
   transform: rotateX(0deg);
-  transition: transform 1200ms cubic-bezier(.22, .61, .36, 1), opacity 150ms ease;
+  /* OPENING default timing */
+  transition: transform 800ms cubic-bezier(.22, .61, .36, 1), opacity 200ms ease;
   will-change: transform;
   z-index: 2;
   box-shadow: 0 1px 0 rgba(0, 0, 0, .08) inset;
-  backface-visibility: hidden;
-  /* no weird triangles */
+  backface-visibility: hidden; /* no weird triangles */
 }
 
 .reveal-frame .flap.top {
@@ -53,11 +50,9 @@ html.dark .reveal-frame .flap {
   opacity: 0;
   overflow: hidden;
   pointer-events: none;
-  transition:
-    max-height 1400ms cubic-bezier(.22, .61, .36, 1),
-    opacity 500ms ease;
-  background: transparent;
-  /* keep page bg showing during fold */
+  /* OPENING default timing */
+  transition: max-height 900ms cubic-bezier(.22, .61, .36, 1), opacity 350ms ease;
+  background: transparent; /* keep page bg showing during fold */
 }
 
 /* When opened: flaps fold away; content expands */
@@ -70,8 +65,7 @@ html.dark .reveal-frame .flap {
 }
 
 .reveal-frame.open .reveal-content {
-  max-height: 5000px;
-  /* big number so tall grids can expand */
+  max-height: 5000px; /* big number so tall grids can expand */
   opacity: 1;
   pointer-events: auto;
 }
@@ -96,6 +90,15 @@ html.dark .reveal-frame::before {
   opacity: 0;
 }
 
+/* Closing overrides: faster collapse & fold */
+.reveal-frame.closing .flap {
+  transition: transform 320ms cubic-bezier(.4, 0, .2, 1), opacity 120ms ease-in;
+}
+
+.reveal-frame.closing .reveal-content {
+  transition: max-height 320ms cubic-bezier(.4, 0, .2, 1), opacity 180ms ease-in;
+}
+
 /* Prevent layout jump – shows a small closed “panel” instead of empty gap */
 #projects .container {
   position: relative;
@@ -111,9 +114,3 @@ html.dark .reveal-frame::before {
 #projects-reveal.flaps-gone .flap {
   display: none;
 }
-
-/* Hide flaps visually during the open animation */
-/* #projects-reveal.open .flap {
-  opacity: 0;
-  visibility: hidden;
-} */
