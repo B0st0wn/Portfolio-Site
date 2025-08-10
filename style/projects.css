@@ -1,57 +1,46 @@
-/* Two-flap (fortune-teller) inline reveal
-   -------------------------------------- */
+/* Two-sheet sliding reveal (flat paper style)
+   ------------------------------------------ */
 
 .reveal-frame {
   position: relative;
   margin-top: 1.5rem;
-  perspective: 1200px;              /* gives the flap fold some depth */
   border-radius: 0.75rem;
-  overflow: hidden;                  /* keep flaps clipped */
-  transform-style: preserve-3d;      /* smoother 3D animation */
+  overflow: hidden;                  /* keep sheets clipped */
 }
 
-/* Flaps cover the content when closed */
-.reveal-frame .flap {
+/* Sheets cover the content when closed */
+.reveal-frame .sheet {
   position: absolute;
   left: 0;
   right: 0;
   height: 50%;
   background: #ffffff;
-  transform-origin: center;
-  transform: rotateX(0deg);
-  transition: transform 650ms cubic-bezier(.22,.61,.36,1); /* no flap opacity fade needed */
+  transform: translateY(0);          /* start covering content */
+  transition: transform 900ms cubic-bezier(.22,.61,.36,1);
   will-change: transform;
-  z-index: 2;                        /* flaps above content */
-  box-shadow: 0 1px 0 rgba(0,0,0,.08) inset;
-  backface-visibility: hidden;       /* no weird triangles */
+  z-index: 2;                        /* sheets above content */
+  box-shadow: 0 1px 0 rgba(0,0,0,.06) inset;
 }
 
-.reveal-frame .flap.top { top: 0; transform-origin: top; }
-.reveal-frame .flap.bottom { bottom: 0; transform-origin: bottom; }
+.reveal-frame .sheet.top    { top: 0; }
+.reveal-frame .sheet.bottom { bottom: 0; }
 
-/* Dark mode surface for flaps */
-html.dark .reveal-frame .flap { background: #0a0a0a; }
+/* Dark mode sheet color */
+html.dark .reveal-frame .sheet { background: #0a0a0a; }
 
-/* Content starts collapsed, no fade */
+/* Content is always there; sheets slide to reveal it */
 .reveal-frame .reveal-content {
   position: relative;
-  z-index: 1;                        /* content below flaps */
-  max-height: 0;
-  overflow: hidden;
-  pointer-events: none;
-  transition: max-height 700ms cubic-bezier(.22,.61,.36,1);
+  z-index: 1;                        /* under sheets */
+  pointer-events: auto;
   background: transparent;
 }
 
-/* When opened: flaps fold away; content expands */
-.reveal-frame.open .flap.top { transform: rotateX(-92deg); }
-.reveal-frame.open .flap.bottom { transform: rotateX(92deg); }
-.reveal-frame.open .reveal-content {
-  max-height: 5000px;   /* big number so tall grids can expand */
-  pointer-events: auto;
-}
+/* When opened: slide sheets off frame */
+.reveal-frame.open .sheet.top    { transform: translateY(-100%); }
+.reveal-frame.open .sheet.bottom { transform: translateY(100%); }
 
-/* Optional: subtle seam line between flaps when closed */
+/* Seam line between sheets when closed */
 .reveal-frame::before {
   content: "";
   position: absolute;
@@ -64,20 +53,7 @@ html.dark .reveal-frame .flap { background: #0a0a0a; }
 html.dark .reveal-frame::before { background: rgba(255,255,255,.06); }
 .reveal-frame.open::before { opacity: 0; }
 
-/* Prevent layout jump – shows a small closed “panel” instead of empty gap */
-#projects .container { position: relative; }
-
-/* IMPORTANT: content stays BELOW flaps (remove any previous z-index:2 override) */
-#projects-reveal .reveal-content {
-  position: relative;
-  z-index: 1;
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-frame .sheet { transition: none; }
 }
-
-/* Flaps vanish entirely after animation – JS adds .flaps-gone once transform ends */
-#projects-reveal.flaps-gone .flap {
-  display: none;
-}
-
-/* NO instant hide on open (kept visible so they cover content during the fold) */
-/* (intentionally empty)
-#projects-reveal.open .flap { }
