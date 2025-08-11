@@ -34,44 +34,35 @@
           const bar = entry.target;
           const target = bar.getAttribute('data-width') || '0%';
           const overshoot = Math.min(parseFloat(target) * 1.1, 100) + '%';
-          bar.animate([{width:'0%'},{width:overshoot},{width:target}], {duration:900, easing:'ease-out', fill:'forwards'});
+          bar.animate(
+            [{ width: '0%' }, { width: overshoot }, { width: target }],
+            { duration: 900, easing: 'ease-out', fill: 'forwards' }
+          );
           observer.unobserve(bar);
         });
       }, { threshold: 0.2 });
       bars.forEach(b => { b.style.width = '0'; obs.observe(b); });
     }
 
-    // ===== Projects sliding reveal (single-wall) =====
-    const trigger = document.getElementById('projects-trigger');
-    const frame = document.getElementById('projects-reveal');
-    if (trigger && frame) {
-      const content = frame.querySelector('.reveal-content');
-      const open = () => {
-        if (frame.classList.contains('open')) return;
-        frame.classList.remove('closing');
-        frame.classList.add('opening','open');
-        trigger.setAttribute('aria-expanded','true');
-        content?.addEventListener('transitionend', () => frame.classList.remove('opening'), { once:true });
+    // ===== Back to top =====
+    const toTopBtn = document.getElementById('back-to-top');
+    if (toTopBtn) {
+      const usesHidden = toTopBtn.classList.contains('hidden'); // support either hidden or opacity strategy
+      const toggleToTop = () => {
+        const show = window.scrollY > 80;
+        if (usesHidden) {
+          toTopBtn.classList.toggle('hidden', !show);
+        } else {
+          toTopBtn.classList.toggle('opacity-0', !show);
+          toTopBtn.classList.toggle('pointer-events-none', !show);
+        }
       };
-      const close = () => {
-        if (!frame.classList.contains('open')) return;
-        frame.classList.remove('opening');
-        frame.classList.add('closing');
-        trigger.setAttribute('aria-expanded','false');
-        content?.addEventListener('transitionend', () => frame.classList.remove('closing'), { once:true });
-        frame.classList.remove('open');
-      };
-      trigger.addEventListener('click', e => {
-        e.preventDefault();
-        frame.classList.contains('open') ? close() : open();
-      });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-      trigger.setAttribute('role','button');
-      trigger.setAttribute('aria-controls','projects-reveal');
-      trigger.setAttribute('aria-expanded','false');
+      toggleToTop();
+      window.addEventListener('scroll', toggleToTop, { passive: true });
+      toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
-    // ===== Tabs: smooth scroll + active + trigger Projects reveal =====
+    // ===== Tabs: smooth scroll + active (no reveal logic) =====
     const tabs = document.querySelectorAll('.tab-link');
     const sections = document.querySelectorAll('.section');
     const setActiveTab = () => {
@@ -88,12 +79,9 @@
         const targetId = t.getAttribute('href');
         const targetEl = document.querySelector(targetId);
         if (targetEl) window.scrollTo({ top: targetEl.offsetTop - 80, behavior: 'smooth' });
-
-        if (targetId === '#projects') {
-          document.getElementById('mobile-dropdown')?.classList.add('hidden');
-          document.getElementById('nav-toggle')?.setAttribute('aria-expanded','false');
-          setTimeout(() => document.getElementById('projects-trigger')?.click(), 150);
-        }
+        // close mobile dropdown if open
+        document.getElementById('mobile-dropdown')?.classList.add('hidden');
+        document.getElementById('nav-toggle')?.setAttribute('aria-expanded', 'false');
       });
     });
     window.addEventListener('scroll', setActiveTab);
@@ -134,7 +122,7 @@
       const btn = document.getElementById('nav-toggle');
       const panel = document.getElementById('mobile-dropdown');
       if (!btn || !panel) return;
-      const close = () => { panel.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); };
+      const close = () => { panel.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); };
 
       btn.addEventListener('click', e => {
         e.stopPropagation();

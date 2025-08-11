@@ -8,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Systems Engineer | Portfolio Site</title>
     <meta name="description" content="Professional resume of a Systems Engineer with 16 years of IT experience" />
-
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    <meta name="theme-color" content="#ffffff">
     <!-- Tailwind + Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -32,7 +34,6 @@
 
     <!-- Local CSS for the 2‑flap reveal -->
     <link rel="stylesheet" href="/style/site.css" />
-
 </head>
 
 <body class="dark:bg-dark dark:text-gray-200 bg-light text-gray-800 transition-colors duration-300">
@@ -248,180 +249,166 @@
         </div>
     </section>
 
-    <!-- PROJECTS (inline reveal) -->
-    <section id="projects" class="section">
+    <!-- PROJECTS -->
+    <section id="projects" class="section py-8 dark:bg-dark bg-white">
         <div class="container mx-auto px-4">
-            <div style="margin-top: 1.5rem;"></div>
-            <div class="text-center mt-4">
-                <button id="projects-trigger"
-                    class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition"
-                    type="button">
-                    View Projects
-                </button>
-            </div>
+            <div class="py-12">
+                <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
 
-            <!-- The reveal frame -->
-            <div id="projects-reveal" class="reveal-frame">
-
-                <div class="reveal-content">
-                    <div class="py-12">
-                        <h2 class="text-3xl font-bold mb-8">Projects</h2>
-
-                        <!-- Work -->
-                        <section aria-labelledby="work-projects" class="mb-12">
-                            <h3 id="work-projects" class="text-2xl font-bold mb-4">Work</h3>
-                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                                    <a href="#" class="block" data-modal-target="#modal-content-intune-m365">
-                                        <img loading="lazy"
-                                            src="https://mssolutions.ca/wp-content/uploads/2023/09/Microsoft-Intune-1024x683.png"
-                                            alt="Laptop fleet management"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                                        <div class="p-6">
-                                            <h4 class="text-xl font-semibold mb-2">Intune &amp; M365 Deployment</h4>
-                                            <p class="text-gray-600 dark:text-gray-300">Joined 700 endpoints to Azure AD
-                                                &amp; deployed Microsoft 365 applications organization-wide.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Intune</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Microsoft
-                                                    365</span>
-                                            </div>
-                                        </div>
-                                    </a>
+                <!-- Work -->
+                <section aria-labelledby="work-projects" class="mb-12">
+                    <h3 id="work-projects" class="text-2xl font-bold mb-4">Work</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- (leave your three project cards exactly as-is) -->
+                        <!-- Intune & M365 -->
+                        <div
+                            class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-intune-m365">
+                                <img loading="lazy"
+                                    src="https://mssolutions.ca/wp-content/uploads/2023/09/Microsoft-Intune-1024x683.png"
+                                    alt="Laptop fleet management"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Intune &amp; M365 Deployment</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Joined 700 endpoints to Azure AD &amp;
+                                        deployed Microsoft 365 applications organization-wide.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Intune</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Microsoft
+                                            365</span>
+                                    </div>
                                 </div>
+                            </a>
+                        </div>
 
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                                    <a href="#" class="block" data-modal-target="#modal-content-helpdesk-button">
-                                        <img loading="lazy"
-                                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1273&auto=format&fit=crop&ixlib=rb-4.1.0"
-                                            alt="Support workflow on a workstation"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                                        <div class="p-6">
-                                            <h4 class="text-xl font-semibold mb-2">Helpdesk Button (PowerShell GUI)</h4>
-                                            <p class="text-gray-600 dark:text-gray-300">One-click support intake that
-                                                emails tickets with auto-collected diagnostics.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">PowerShell</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">WinForms</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Outlook/SMTP</span>
-                                            </div>
-                                        </div>
-                                    </a>
+                        <!-- Helpdesk Button -->
+                        <div
+                            class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-helpdesk-button">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1273&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Support workflow on a workstation"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Helpdesk Button (PowerShell GUI)</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">One-click support intake that emails
+                                        tickets with auto-collected diagnostics.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">PowerShell</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">WinForms</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Outlook/SMTP</span>
+                                    </div>
                                 </div>
+                            </a>
+                        </div>
 
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                                    <a href="#" class="block" data-modal-target="#modal-content-kiosk-upgrade">
-                                        <img loading="lazy"
-                                            src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0"
-                                            alt="Windows deployment in progress"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                                        <div class="p-6">
-                                            <h4 class="text-xl font-semibold mb-2">Mass Kiosk Windows 10 → 11 Upgrade
-                                            </h4>
-                                            <p class="text-gray-600 dark:text-gray-300">Automated multi-site kiosk
-                                                upgrades using Clonezilla imaging pipeline.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Clonezilla</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Windows
-                                                    11</span>
-                                            </div>
-                                        </div>
-                                    </a>
+                        <!-- Kiosk Upgrade -->
+                        <div
+                            class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-kiosk-upgrade">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Windows deployment in progress"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Mass Kiosk Windows 10 → 11 Upgrade</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Automated multi-site kiosk upgrades
+                                        using Clonezilla imaging pipeline.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Clonezilla</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Windows
+                                            11</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
-
-                        <!-- Home -->
-                        <section aria-labelledby="home-projects">
-                            <h3 id="home-projects" class="text-2xl font-bold mb-4">Home</h3>
-                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                                    <a href="#" class="block" data-modal-target="#modal-content-unraid">
-                                        <img loading="lazy" src="http://hanlonhouse.us/img/unraid.png"
-                                            alt="Unraid server rack"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                                        <div class="p-6">
-                                            <h4 class="text-xl font-semibold mb-2">Unraid NAS Monitoring</h4>
-                                            <p class="text-gray-600 dark:text-gray-300">Published disk health, network
-                                                throughput, and VM status to MQTT for Home Assistant dashboards.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Unraid</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Python</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                                    <a href="#" class="block" data-modal-target="#modal-content-home-assistant">
-                                        <img loading="lazy"
-                                            src="https://www.home-assistant.io/images/default-social.png"
-                                            alt="Home Assistant dashboard on tablet"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                                        <div class="p-6">
-                                            <h4 class="text-xl font-semibold mb-2">Home Assistant Dashboard</h4>
-                                            <p class="text-gray-600 dark:text-gray-300">YAML-mode dashboard with
-                                                auto-entities for Unraid sensors and two-way audio via go2rtc.</p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Home
-                                                    Assistant</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">YAML</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div
-                                    class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
-                                    <a href="#" class="block" data-modal-target="#modal-content-pfsense">
-                                        <img loading="lazy"
-                                            src="https://blog.domotz.com/wp-content/uploads/2023/01/pfsense-blog-header.jpg"
-                                            alt="pfSense firewall device"
-                                            class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
-                                        <div class="p-6">
-                                            <h4 class="text-xl font-semibold mb-2">pfSense VLAN &amp; Firewall</h4>
-                                            <p class="text-gray-600 dark:text-gray-300">Designed 5-VLAN network
-                                                segmentation with reverse proxy for go2rtc and secure Cloudflare tunnel.
-                                            </p>
-                                            <div class="mt-4 flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">pfSense</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">NGINX</span>
-                                                <span
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Cloudflare</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </section>
+                            </a>
+                        </div>
                     </div>
-                </div> <!-- /reveal-content -->
-            </div> <!-- /reveal-frame -->
+                </section>
 
+                <!-- Home -->
+                <section aria-labelledby="home-projects">
+                    <h3 id="home-projects" class="text-2xl font-bold mb-4">Home</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- (leave your three home cards as-is) -->
+                        <!-- Unraid -->
+                        <div
+                            class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-unraid">
+                                <img loading="lazy" src="http://hanlonhouse.us/img/unraid.png" alt="Unraid server rack"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Unraid NAS Monitoring</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Published disk health, network
+                                        throughput, and VM status to MQTT for Home Assistant dashboards.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Unraid</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Python</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Home Assistant -->
+                        <div
+                            class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-home-assistant">
+                                <img loading="lazy" src="https://www.home-assistant.io/images/default-social.png"
+                                    alt="Home Assistant dashboard on tablet"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Home Assistant Dashboard</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">YAML-mode dashboard with auto-entities
+                                        for Unraid sensors and two-way audio via go2rtc.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Home
+                                            Assistant</span>
+                                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">YAML</span>
+                                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">MQTT</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- pfSense -->
+                        <div
+                            class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-pfsense">
+                                <img loading="lazy"
+                                    src="https://blog.domotz.com/wp-content/uploads/2023/01/pfsense-blog-header.jpg"
+                                    alt="pfSense firewall device"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">pfSense VLAN &amp; Firewall</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Designed 5-VLAN network segmentation
+                                        with reverse proxy for go2rtc and secure Cloudflare tunnel.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">pfSense</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">NGINX</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Cloudflare</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </section>
+
 
     <!-- Hidden templates for project detail modal -->
     <div id="modal-content-intune-m365" class="hidden">
@@ -967,6 +954,15 @@
         </div>
     </div>
 
+    <button id="back-to-top" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[120]
+         w-12 h-12 rounded-full flex items-center justify-center text-xl
+         shadow-lg transition-opacity transition-colors duration-200
+         opacity-0 pointer-events-none
+         bg-black text-white hover:opacity-90
+         dark:bg-white dark:text-black" aria-label="Back to top" title="Back to top" type="button">
+        <i class="fas fa-arrow-up"></i>
+        <span class="sr-only">Back to top</span>
+    </button>
 
 
     <!-- Local JS that opens/closes the two‑flap reveal -->
