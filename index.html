@@ -32,7 +32,6 @@
         }
     </script>
 
-    <!-- Local CSS for the 2‑flap reveal -->
     <link rel="stylesheet" href="/style/site.css" />
 </head>
 
@@ -93,7 +92,7 @@
     </div>
 
     <!-- Home -->
-    <section id="home" class="section py-16 dark:bg-dark bg-white">
+    <section id="home" class="section py-16 bg-[var(--surface-0)] dark:text-gray-200">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
@@ -129,7 +128,7 @@
     </section>
 
     <!-- Skills + View Projects trigger -->
-    <section id="skills" class="section py-16 dark:bg-primary bg-gray-100">
+    <section id="skills" class="section py-16 bg-[var(--surface-1)] dark:text-gray-200">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Technical Skills</h2>
 
@@ -250,7 +249,7 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section py-8 dark:bg-dark bg-white">
+    <section id="projects" class="section        bg-[var(--surface-0)] dark:text-gray-200">
         <div class="container mx-auto px-4">
             <div class="py-12">
                 <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
@@ -479,14 +478,13 @@
                         <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PowerShell</span>
                         <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">WinForms</span>
                     </div>
-
                     <h4 class="font-semibold mt-4">Screenshot</h4>
-                    <a href="/img/helpdesk_preview.png" target="_blank" class="block">
-                        <picture>
-                            <img src="/img/helpdesk_preview.png" alt="Helpdesk Button GUI preview"
-                                class="w-auto h-auto object-contain cursor-zoom-in">
-                        </picture>
-                        <span class="sr-only">Open full-size image in a new tab</span>
+                    <picture>
+                        <img src="/img/helpdesk_preview.png" alt="Helpdesk Button GUI preview"
+                            class="max-w-sm w-full h-auto object-contain cursor-zoom-in" id="img-thumb"
+                            data-fullsrc="/img/helpdesk_preview.png">
+                    </picture>
+                    <span class="sr-only">Open full-size image in a new tab</span>
                     </a>
                 </div>
             </section>
@@ -710,7 +708,7 @@
     <!-- /templates -->
 
     <!-- Resume Section -->
-    <section id="resume" class="section py-16 dark:bg-primary bg-gray-100">
+    <section id="resume" class="section py-16 bg-[var(--surface-1)] dark:text-gray-200">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Professional Resume</h2>
 
@@ -872,7 +870,7 @@
 
 
     <!-- Contact -->
-    <section id="contact" class="section py-16 dark:bg-dark bg-white">
+    <section id="contact" class="section py-16 bg-[var(--surface-0)] dark:text-gray-200">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Get In Touch</h2>
             <div class="max-w-2xl mx-auto">
@@ -964,6 +962,11 @@
         <span class="sr-only">Back to top</span>
     </button>
 
+    <!-- Global Image Modal -->
+    <div id="global-image-modal" class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-[9999]">
+        <img id="global-image-modal-img" src="" alt="Expanded"
+            class="max-w-[95vw] max-h-[95vh] object-contain cursor-zoom-out">
+    </div>
 
     <!-- Local JS that opens/closes the two‑flap reveal -->
     <script src="/js/site.js" defer></script>

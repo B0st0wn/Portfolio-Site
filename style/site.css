@@ -1,150 +1,55 @@
-/* Two-flap (fortune-teller) inline reveal
-   -------------------------------------- */
+/* ===============================
+   Sticky Navbar and Active Tab Styling
+   =============================== */
 
-.reveal-frame {
-  position: relative;
-  margin-top: 1.5rem;
-  perspective: 1200px;
-  /* gives the flap fold some depth */
-  border-radius: 0.75rem;
-  overflow: hidden;
-  /* keep flaps clipped */
-  transform-style: preserve-3d;
-  /* smoother 3D animation */
-}
-
-/* Flaps cover the content when closed */
-.reveal-frame .flap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: #ffffff;
-  transform-origin: center;
-  transform: rotateX(0deg);
-  /* OPENING default timing */
-  transition: transform 800ms cubic-bezier(.22, .61, .36, 1), opacity 200ms ease;
-  will-change: transform;
-  z-index: 2;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, .08) inset;
-  backface-visibility: hidden;
-  /* no weird triangles */
-}
-
-.reveal-frame .flap.top {
-  top: 0;
-  transform-origin: top;
-}
-
-.reveal-frame .flap.bottom {
-  bottom: 0;
-  transform-origin: bottom;
-}
-
-/* Dark mode surface for flaps */
-html.dark .reveal-frame .flap {
-  background: #0a0a0a;
-}
-
-/* Content is hidden (collapsed) until frame is .open */
-.reveal-frame .reveal-content {
-  position: relative;
-  z-index: 1;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
-  /* OPENING default timing */
-  transition: max-height 900ms cubic-bezier(.22, .61, .36, 1), opacity 350ms ease;
-  background: transparent;
-  /* keep page bg showing during fold */
-}
-
-/* When opened: flaps fold away; content expands */
-.reveal-frame.open .flap.top {
-  transform: rotateX(-92deg);
-}
-
-.reveal-frame.open .flap.bottom {
-  transform: rotateX(92deg);
-}
-
-.reveal-frame.open .reveal-content {
-  max-height: 5000px;
-  /* big number so tall grids can expand */
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Optional: subtle seam line between flaps when closed */
-.reveal-frame::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(0, 0, 0, .08);
-  z-index: 3;
-}
-
-html.dark .reveal-frame::before {
-  background: rgba(255, 255, 255, .06);
-}
-
-.reveal-frame.open::before {
-  opacity: 0;
-}
-
-/* Closing overrides: faster collapse & fold */
-.reveal-frame.closing .flap {
-  transition: transform 320ms cubic-bezier(.4, 0, .2, 1), opacity 120ms ease-in;
-}
-
-.reveal-frame.closing .reveal-content {
-  transition: max-height 320ms cubic-bezier(.4, 0, .2, 1), opacity 180ms ease-in;
-}
-
-/* Prevent layout jump – shows a small closed “panel” instead of empty gap */
-#projects .container {
-  position: relative;
-}
-
-/* Keep the projects content above the flaps */
-#projects-reveal .reveal-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Flaps vanish entirely after animation */
-#projects-reveal.flaps-gone .flap {
-  display: none;
-}
-
-/* Sticky Navbar for section */
+/* Makes the navigation bar stick to the top when scrolling */
 .sticky-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50
+  position: sticky; /* Fixes navbar in place when scrolling past it */
+  top: 0;           /* Sticks to the top edge of the viewport */
+  z-index: 50;      /* Keeps navbar above other elements */
 }
 
+/* Style for the active tab in the navbar */
 .active-tab {
-  border-bottom: 0;
-  font-weight: 600;
-  text-decoration-line: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 10px;
-  /* tweak spacing as you like */
-  text-decoration-color: currentColor;
+  border-bottom: 0;                     /* Removes default bottom border */
+  font-weight: 600;                     /* Makes active tab text bold */
+  text-decoration-line: underline;      /* Adds underline to indicate active state */
+  text-decoration-thickness: 3px;       /* Makes the underline thicker */
+  text-underline-offset: 10px;          /* Pushes the underline away from the text */
+  text-decoration-color: currentColor;  /* Matches underline color to text color */
 }
 
+/* Active tab in dark theme */
 .dark .active-tab {
-  border-color: #ffffff
+  border-color: #ffffff; /* White accent for dark mode */
 }
 
+/* Active tab in light theme */
 .light .active-tab {
-  border-color: #000000
+  border-color: #000000; /* Black accent for light mode */
 }
 
+/* ===============================
+   Section Spacing for Scroll Behavior
+   =============================== */
+
+/* Prevents section headings from being hidden under the sticky navbar */
 .section {
-  scroll-margin-top: 80px
+  scroll-margin-top: 80px; /* Creates spacing when using in-page anchors */
+}
+
+/* ===============================
+   Theme Variables
+   =============================== */
+
+/* Light theme color variables */
+.light {
+  --surface-0: #f7f7f9; /* Primary light background color */
+  --surface-1: #eeeeF2; /* Slightly darker secondary background */
+}
+
+/* Dark theme color variables */
+.dark {
+  --surface-0: #0c0c0e; /* Primary dark background color */
+  --surface-1: #141416; /* Slightly lighter secondary background */
+}
