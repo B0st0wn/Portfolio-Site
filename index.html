@@ -41,8 +41,13 @@
         }
 
         .active-tab {
-            border-bottom: 3px solid;
-            font-weight: 600
+            border-bottom: 0;
+            font-weight: 600;
+            text-decoration-line: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 10px;
+            /* tweak spacing as you like */
+            text-decoration-color: currentColor;
         }
 
         .dark .active-tab {
@@ -64,24 +69,42 @@
     <!-- Sticky Navigation -->
     <nav class="sticky-nav dark:bg-dark bg-white shadow-lg">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between">
-                <div class="flex space-x-8">
-                    <a href="#home"
-                        class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link active-tab">
-                        <i class="fas fa-home mr-2"></i>Home
-                    </a>
-                    <a href="#resume"
-                        class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link">
-                        <i class="fas fa-file-alt mr-2"></i>Resume
-                    </a>
-                    <a href="#contact"
-                        class="py-4 px-2 dark:text-gray-300 text-gray-700 hover:text-primary dark:hover:text-white transition duration-300 tab-link">
-                        <i class="fas fa-envelope mr-2"></i>Contact
-                    </a>
+            <div class="relative flex items-center justify-between h-14">
+                <!-- LEFT: hamburger (mobile) + links (desktop) -->
+                <div class="flex items-center gap-2">
+                    <!-- Hamburger (mobile only) -->
+                    <button id="nav-toggle" class="md:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+                        aria-label="Open menu" aria-haspopup="true" aria-expanded="false"
+                        aria-controls="mobile-dropdown">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+
+                    <!-- Desktop links (left) -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#home" class="py-2 tab-link active-tab">Home</a>
+                        <a href="#projects" class="py-2 tab-link">Projects</a>
+                        <a href="#resume" class="py-2 tab-link">Resume</a>
+                        <a href="#contact" class="py-2 tab-link">Contact</a>
+                    </div>
                 </div>
+
+                <!-- RIGHT: theme toggle (always right) -->
                 <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
                     <i id="theme-icon" class="fas fa-moon text-xl dark:text-yellow-300 text-gray-700"></i>
                 </button>
+
+                <!-- MOBILE DROPDOWN (absolute overlay) -->
+                <div id="mobile-dropdown"
+                    class="absolute left-0 top-full mt-2 w-56 md:hidden hidden rounded-lg border border-gray-800 bg-black text-white shadow-xl z-50">
+                    <div class="py-2">
+                        <a href="#home" class="block px-3 py-2 tab-link">Home</a>
+                        <a href="#projects" class="block px-3 py-2 tab-link">Projects</a>
+                        <a href="#resume" class="block px-3 py-2 tab-link">Resume</a>
+                        <a href="#contact" class="block px-3 py-2 tab-link">Contact</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -267,7 +290,7 @@
             </div>
 
             <!-- The reveal frame -->
-            <div id="projects-reveal" class="reveal-frame rounded-xl shadow-xl">
+            <div id="projects-reveal" class="reveal-frame">
 
                 <div class="reveal-content">
                     <div class="py-12">
@@ -973,113 +996,10 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        // Skill bars
-        document.addEventListener('DOMContentLoaded', () => {
-            const bars = document.querySelectorAll('.skill-bar-fill');
-            const obs = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    const bar = entry.target;
-                    const target = bar.getAttribute('data-width');
-                    const overshoot = Math.min(parseFloat(target) * 1.1, 100) + '%';
-                    bar.animate([{ width: '0%' }, { width: overshoot }, { width: target }], { duration: 900, easing: 'ease-out', fill: 'forwards' });
-                    observer.unobserve(bar);
-                });
-            }, { threshold: 0.2 });
-            bars.forEach(bar => { bar.style.width = '0'; obs.observe(bar); });
-        });
 
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const htmlEl = document.documentElement;
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            htmlEl.classList.add('dark'); themeIcon.classList.replace('fa-moon', 'fa-sun');
-        } else { htmlEl.classList.remove('dark'); htmlEl.classList.add('light'); }
-        themeToggle.addEventListener('click', () => {
-            if (htmlEl.classList.contains('dark')) {
-                htmlEl.classList.remove('dark'); htmlEl.classList.add('light'); themeIcon.classList.replace('fa-sun', 'fa-moon'); localStorage.setItem('theme', 'light');
-            } else {
-                htmlEl.classList.remove('light'); htmlEl.classList.add('dark'); themeIcon.classList.replace('fa-moon', 'fa-sun'); localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        // Tabs smooth scroll + active
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('.tab-link');
-            const sections = document.querySelectorAll('.section');
-            function setActiveTab() {
-                let currentSection = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
-                        currentSection = section.getAttribute('id');
-                    }
-                });
-                tabs.forEach(tab => {
-                    tab.classList.remove('active-tab');
-                    if (tab.getAttribute('href') === `#${currentSection}`) tab.classList.add('active-tab');
-                });
-            }
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    window.scrollTo({ top: targetSection.offsetTop - 80, behavior: 'smooth' });
-                });
-            });
-            window.addEventListener('scroll', setActiveTab);
-            setActiveTab();
-        });
-
-        // Contact form
-        function sendMail() {
-            const name = encodeURIComponent(document.getElementById('name').value);
-            const email = encodeURIComponent(document.getElementById('email').value);
-            const subject = encodeURIComponent(document.getElementById('subject').value);
-            const message = encodeURIComponent(document.getElementById('message').value);
-            const mailtoLink = `mailto:paul@hanlonhouse.us?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
-            window.location.href = mailtoLink;
-            return false;
-        }
-        window.sendMail = sendMail;
-
-        // Project detail modal wiring (unchanged)
-        (() => {
-            const modal = document.getElementById('modal-root');
-            const body = document.getElementById('modal-body');
-            document.addEventListener('click', e => {
-                const trigger = e.target.closest('[data-modal-target]');
-                if (!trigger) return;
-                e.preventDefault();
-                const src = document.querySelector(trigger.getAttribute('data-modal-target'));
-                if (!src) return;
-                body.innerHTML = src.innerHTML;
-                modal.classList.remove('hidden');
-                document.documentElement.classList.add('overflow-hidden');
-            });
-            modal.addEventListener('click', e => {
-                if (e.target.closest('[data-modal-close]') || e.target.matches('[data-modal-close], [data-modal-close] *') || e.target === modal.firstElementChild) {
-                    modal.classList.add('hidden');
-                    body.innerHTML = '';
-                    document.documentElement.classList.remove('overflow-hidden');
-                }
-            });
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                    modal.classList.add('hidden');
-                    body.innerHTML = '';
-                    document.documentElement.classList.remove('overflow-hidden');
-                }
-            });
-        })();
-    </script>
 
     <!-- Local JS that opens/closes the two‑flap reveal -->
+    <script src="/js/site.js" defer></script>
     <script src="/js/projects.js" defer></script>
     <script src="/js/image_modal.js"></script>
 </body>
