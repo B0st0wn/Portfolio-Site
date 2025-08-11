@@ -41,6 +41,36 @@
       bars.forEach(b => { b.style.width = '0'; obs.observe(b); });
     }
 
+    // ===== Projects sliding reveal (single-wall) =====
+    const trigger = document.getElementById('projects-trigger');
+    const frame = document.getElementById('projects-reveal');
+    if (trigger && frame) {
+      const content = frame.querySelector('.reveal-content');
+      const open = () => {
+        if (frame.classList.contains('open')) return;
+        frame.classList.remove('closing');
+        frame.classList.add('opening','open');
+        trigger.setAttribute('aria-expanded','true');
+        content?.addEventListener('transitionend', () => frame.classList.remove('opening'), { once:true });
+      };
+      const close = () => {
+        if (!frame.classList.contains('open')) return;
+        frame.classList.remove('opening');
+        frame.classList.add('closing');
+        trigger.setAttribute('aria-expanded','false');
+        content?.addEventListener('transitionend', () => frame.classList.remove('closing'), { once:true });
+        frame.classList.remove('open');
+      };
+      trigger.addEventListener('click', e => {
+        e.preventDefault();
+        frame.classList.contains('open') ? close() : open();
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+      trigger.setAttribute('role','button');
+      trigger.setAttribute('aria-controls','projects-reveal');
+      trigger.setAttribute('aria-expanded','false');
+    }
+
     // ===== Tabs: smooth scroll + active + trigger Projects reveal =====
     const tabs = document.querySelectorAll('.tab-link');
     const sections = document.querySelectorAll('.section');
@@ -76,10 +106,10 @@
       if (!modal || !body) return;
 
       document.addEventListener('click', e => {
-        const trigger = e.target.closest('[data-modal-target]');
-        if (!trigger) return;
+        const t = e.target.closest('[data-modal-target]');
+        if (!t) return;
         e.preventDefault();
-        const src = document.querySelector(trigger.getAttribute('data-modal-target'));
+        const src = document.querySelector(t.getAttribute('data-modal-target'));
         if (!src) return;
         body.innerHTML = src.innerHTML;
         modal.classList.remove('hidden');

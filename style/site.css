@@ -4,10 +4,13 @@
 .reveal-frame {
   position: relative;
   margin-top: 1.5rem;
-  perspective: 1200px; /* gives the flap fold some depth */
+  perspective: 1200px;
+  /* gives the flap fold some depth */
   border-radius: 0.75rem;
-  overflow: hidden; /* keep flaps clipped */
-  transform-style: preserve-3d; /* smoother 3D animation */
+  overflow: hidden;
+  /* keep flaps clipped */
+  transform-style: preserve-3d;
+  /* smoother 3D animation */
 }
 
 /* Flaps cover the content when closed */
@@ -24,7 +27,8 @@
   will-change: transform;
   z-index: 2;
   box-shadow: 0 1px 0 rgba(0, 0, 0, .08) inset;
-  backface-visibility: hidden; /* no weird triangles */
+  backface-visibility: hidden;
+  /* no weird triangles */
 }
 
 .reveal-frame .flap.top {
@@ -52,7 +56,8 @@ html.dark .reveal-frame .flap {
   pointer-events: none;
   /* OPENING default timing */
   transition: max-height 900ms cubic-bezier(.22, .61, .36, 1), opacity 350ms ease;
-  background: transparent; /* keep page bg showing during fold */
+  background: transparent;
+  /* keep page bg showing during fold */
 }
 
 /* When opened: flaps fold away; content expands */
@@ -65,7 +70,8 @@ html.dark .reveal-frame .flap {
 }
 
 .reveal-frame.open .reveal-content {
-  max-height: 5000px; /* big number so tall grids can expand */
+  max-height: 5000px;
+  /* big number so tall grids can expand */
   opacity: 1;
   pointer-events: auto;
 }
@@ -114,3 +120,31 @@ html.dark .reveal-frame::before {
 #projects-reveal.flaps-gone .flap {
   display: none;
 }
+
+/* Sticky Navbar for section */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50
+}
+
+.active-tab {
+  border-bottom: 0;
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+  /* tweak spacing as you like */
+  text-decoration-color: currentColor;
+}
+
+.dark .active-tab {
+  border-color: #ffffff
+}
+
+.light .active-tab {
+  border-color: #000000
+}
+
+.section {
+  scroll-margin-top: 80px
