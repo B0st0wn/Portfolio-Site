@@ -2,54 +2,68 @@
    Sticky Navbar and Active Tab Styling
    =============================== */
 
-/* Makes the navigation bar stick to the top when scrolling */
+/* Sticky navbar */
 .sticky-nav {
-  position: sticky; /* Fixes navbar in place when scrolling past it */
-  top: 0;           /* Sticks to the top edge of the viewport */
-  z-index: 50;      /* Keeps navbar above other elements */
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-/* Style for the active tab in the navbar */
+/* Active tab underline */
 .active-tab {
-  border-bottom: 0;                     /* Removes default bottom border */
-  font-weight: 600;                     /* Makes active tab text bold */
-  text-decoration-line: underline;      /* Adds underline to indicate active state */
-  text-decoration-thickness: 3px;       /* Makes the underline thicker */
-  text-underline-offset: 10px;          /* Pushes the underline away from the text */
-  text-decoration-color: currentColor;  /* Matches underline color to text color */
+  border-bottom: 0;
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+  text-decoration-color: currentColor;
 }
 
-/* Active tab in dark theme */
+/* Active tab tweaks per theme */
 .dark .active-tab {
-  border-color: #ffffff; /* White accent for dark mode */
+  border-color: #ffffff;
 }
-
-/* Active tab in light theme */
 .light .active-tab {
-  border-color: #000000; /* Black accent for light mode */
+  border-color: #000000;
 }
 
 /* ===============================
-   Section Spacing for Scroll Behavior
+   Section Spacing
    =============================== */
 
-/* Prevents section headings from being hidden under the sticky navbar */
+/* Prevent headings from hiding behind sticky navbar */
 .section {
-  scroll-margin-top: 80px; /* Creates spacing when using in-page anchors */
+  scroll-margin-top: 80px;
 }
 
 /* ===============================
    Theme Variables
    =============================== */
 
-/* Light theme color variables */
 .light {
-  --surface-0: #f7f7f9; /* Primary light background color */
-  --surface-1: #eeeeF2; /* Slightly darker secondary background */
+  --surface-0: #f7f7f9;
+  --surface-1: #eeeff2;
 }
 
-/* Dark theme color variables */
 .dark {
-  --surface-0: #0c0c0e; /* Primary dark background color */
-  --surface-1: #141416; /* Slightly lighter secondary background */
+  --surface-0: #0c0c0e;
+  --surface-1: #141416;
+  --secondary: #222222; /* ensure custom secondary var exists */
+}
+
+/* ===============================
+   Project Card Fix
+   =============================== */
+
+/* Match project cards with skills cards in dark mode */
+.dark #projects .group {
+  background-color: var(--secondary, #222222) !important;
+}
+.dark #projects .group:hover {
+  background-color: #2a2a2a !important; /* slightly lighter hover */
+}
+
+/* Make modal match the rest of dark theme */
+.dark #modal-root > div {
+  background-color: var(--secondary, #222222) !important;
 }
