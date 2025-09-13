@@ -90,7 +90,7 @@
     <div id="img-lightbox" class="fixed inset-0 z-[110] hidden">
         <div class="absolute inset-0 bg-black/70" data-close-image></div>
         <div id="pz-stage" class="absolute inset-6 md:inset-10 rounded-lg bg-black/20 overflow-hidden cursor-grab">
-            <img id="pz-img" alt="Expanded image"
+            <img id="pz-img" loading="lazy" alt="Expanded image"
                 class="select-none max-w-none max-h-none pointer-events-none will-change-transform">
         </div>
         <button class="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
@@ -486,7 +486,7 @@
                     </div>
                     <h4 class="font-semibold mt-4">Screenshot</h4>
                     <picture>
-                        <img src="/img/helpdesk_preview.png"
+                        <img loading="lazy" src="/img/helpdesk_preview.png"
                             class="max-w-sm w-full h-auto object-contain cursor-zoom-in" id="img-thumb"
                             data-fullsrc="/img/helpdesk_preview.png">
                     </picture>
@@ -699,7 +699,7 @@
                     <div>
                         <h4 class="font-semibold">Topology Diagram</h4>
                         <picture>
-                            <img src="/img/pfsense-topology.png"
+                            <img loading="lazy" src="/img/pfsense-topology.png"
                                 class="max-w-sm w-full h-auto object-contain cursor-zoom-in" id="img-thumb"
                                 data-fullsrc="/img/pfsense-topology.png">
                         </picture>
@@ -968,7 +968,7 @@
 
     <!-- Global Image Modal -->
     <div id="global-image-modal" class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-[9999]">
-        <img id="global-image-modal-img" src="" alt="Expanded"
+        <img id="global-image-modal-img" loading="lazy" src="" alt="Expanded"
             class="max-w-[95vw] max-h-[95vh] object-contain cursor-zoom-out">
     </div>
 
