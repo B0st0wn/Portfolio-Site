@@ -67,3 +67,55 @@
 .dark #modal-root > div {
   background-color: var(--secondary, #222222) !important;
 }
+
+/* ===============================
+   Custom Color Utilities (replaces Tailwind CDN config)
+   =============================== */
+
+/* Background colors */
+.bg-light {
+  background-color: #f8fafc;
+}
+.dark .dark\:bg-dark {
+  background-color: #0a0a0a;
+}
+.dark .dark\:bg-primary {
+  background-color: #111111;
+}
+.dark .dark\:bg-secondary {
+  background-color: #222222;
+}
+
+/* Text colors */
+.text-primary {
+  color: #111111;
+}
+.dark .dark\:text-primary {
+  color: #111111;
+}
+
+/* Hover states */
+.hover\:text-primary:hover {
+  color: #111111;
+}
+.dark .dark\:hover\:text-primary:hover {
+  color: #111111;
+}
+
+/* ===============================
+   Utility Classes (CSP-safe replacements for inline styles)
+   =============================== */
+
+/* Skill bar initial state */
+.skill-bar-initial {
+  width: 0;
+}
+
+/* Spacer utilities */
+.spacer-3rem {
+  height: 3rem;
+}
+
+.spacer-1rem {
+  height: 1rem;
+}

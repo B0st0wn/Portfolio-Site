@@ -42,6 +42,31 @@
     document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
 
     /* ===============================
+       Current Year (footer copyright)
+       =============================== */
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    /* ===============================
+       Contact Form Submit Handler
+       =============================== */
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const enc = encodeURIComponent;
+        const name = enc(document.getElementById('name').value);
+        const email = enc(document.getElementById('email').value);
+        const subject = enc(document.getElementById('subject').value);
+        const message = enc(document.getElementById('message').value);
+        const mailtoLink = `mailto:paul@hanlonhouse.us?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
+        window.location.href = mailtoLink;
+      });
+    }
+
+    /* ===============================
        Skill Bar Animation on Scroll
        =============================== */
     const bars = document.querySelectorAll('.skill-bar-fill');
@@ -182,21 +207,6 @@
       panel.addEventListener('click', e => { if (e.target.closest('a')) close(); });
     })();
 
-    /* ===============================
-       Contact Form Mailto Handler
-       =============================== */
-    window.sendMail = function () {
-      const enc = encodeURIComponent;
-      const name = enc(document.getElementById('name').value);
-      const email = enc(document.getElementById('email').value);
-      const subject = enc(document.getElementById('subject').value);
-      const message = enc(document.getElementById('message').value);
-
-      // Construct mailto link with subject & body fields
-      const mailtoLink = `mailto:paul@hanlonhouse.us?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
-      window.location.href = mailtoLink;
-      return false; // Prevent default form submission
-    };
 
     /* =======================
        Global Image Lightbox 
