@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/fav/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/fav/favicon.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Template | Systems Engineer</title>
+    <meta name="description" content="A clean, responsive portfolio template for IT and systems engineering roles." />
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+
+    <!-- Prevent theme flash: apply stored/system theme before CSS/JS finishes loading -->
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem("theme");
+                var systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                var theme = storedTheme || (systemDark ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+                document.documentElement.classList.toggle("dark", theme === "dark");
+            } catch (e) { }
+        })();
+    </script>
+    <!-- Tailwind + Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="/style/site.css" />
+</head>
+
+<body class="dark:bg-dark dark:text-gray-200 bg-light text-gray-800 transition-colors duration-300">
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav dark:bg-dark bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="relative flex items-center justify-between h-14">
+                <!-- LEFT: hamburger (mobile) + links (desktop) -->
+                <div class="flex items-center gap-2">
+                    <!-- Hamburger (mobile only) -->
+                    <button id="nav-toggle" class="md:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+                        aria-label="Open menu" aria-haspopup="true" aria-expanded="false"
+                        aria-controls="mobile-dropdown">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+
+                    <!-- Desktop links (left) -->
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#home" class="py-2 tab-link active-tab"><i class="fas fa-home mr-1"></i> Home</a>
+                        <a href="#skills" class="py-2 tab-link"><i class="fas fa-code mr-1"></i> Skills</a>
+                        <a href="#projects" class="py-2 tab-link"><i class="fas fa-folder-open mr-1"></i> Projects</a>
+                        <a href="#resume" class="py-2 tab-link"><i class="fas fa-file-alt mr-1"></i> Resume</a>
+                        <a href="#contact" class="py-2 tab-link"><i class="fas fa-envelope mr-1"></i> Contact</a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: theme toggle (always right) -->
+                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none" aria-label="Toggle color theme">
+                    <i id="theme-icon" class="fas fa-moon text-xl dark:text-yellow-300 text-gray-700" aria-hidden="true"></i>
+                </button>
+
+                <!-- MOBILE DROPDOWN (absolute overlay) -->
+                <div id="mobile-dropdown"
+                    class="absolute left-0 top-full mt-2 w-56 md:hidden hidden rounded-lg border border-gray-800 bg-black text-white shadow-xl z-50">
+                    <div class="py-2">
+                        <a href="#home" class="block px-3 py-2 tab-link"><i class="fas fa-home mr-1"></i> Home</a>
+                        <a href="#skills" class="block px-3 py-2 tab-link"><i class="fas fa-code mr-1"></i> Skills</a>
+                        <a href="#projects" class="block px-3 py-2 tab-link"><i class="fas fa-folder-open mr-1"></i>
+                            Projects</a>
+                        <a href="#resume" class="block px-3 py-2 tab-link"><i class="fas fa-file-alt mr-1"></i>
+                            Resume</a>
+                        <a href="#contact" class="block px-3 py-2 tab-link"><i class="fas fa-envelope mr-1"></i>
+                            Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pan & Zoom Lightbox (unchanged) -->
+    <div id="img-lightbox" class="fixed inset-0 z-[110] hidden">
+        <div class="absolute inset-0 bg-black/70" data-close-image></div>
+        <div id="pz-stage" class="absolute inset-6 md:inset-10 rounded-lg bg-black/20 overflow-hidden cursor-grab">
+            <img id="pz-img" loading="lazy" alt="Expanded image"
+                class="select-none max-w-none max-h-none pointer-events-none will-change-transform">
+        </div>
+        <button class="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
+            data-close-image>✕</button>
+    </div>
+
+    <!-- Home -->
+    <section id="home" class="section py-16 bg-[var(--surface-0)] dark:text-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0"
+                        alt="Abstract technology background"
+                        class="rounded-full border-4 dark:border-gray-700 border-gray-300 shadow-xl w-64 h-64 object-cover">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h1 class="text-4xl font-bold dark:text-white text-gray-900 mb-4">Your Name</h1>
+                    <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+                        Systems Engineer focused on identity, endpoint management, and automation.
+                    </p>
+                    <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+                        Strong in PowerShell and Python, with hands-on experience across Microsoft 365, Entra ID, Intune,
+                        Active Directory, and modern Windows device lifecycle management.
+                    </p>
+                    <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
+                        Comfortable owning projects end-to-end: discovery, rollout, documentation, and support. Known for
+                        pragmatic troubleshooting and clean operational handoffs.
+                    </p>
+                    <p class="text-xl dark:text-gray-300 text-gray-700">
+                        Outside work: home lab experiments, small automation projects, and learning new tools.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills + View Projects trigger -->
+    <section id="skills" class="section py-16 bg-[var(--surface-1)] dark:text-gray-200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Technical Skills</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+                <!-- Start Skills -->
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Operating Systems</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-blue-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="90%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Scripting &amp; Automation</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-orange-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="90%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Endpoint &amp; System Management</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-yellow-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="85%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Cloud &amp; Identity Management</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-green-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Networking &amp; Security</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-red-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Endpoint Security &amp; Compliance</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-teal-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Patch Management &amp; Compliance</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-amber-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Collaboration &amp; Productivity Tools</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">75%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-indigo-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="75%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Website Design</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">70%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-pink-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="70%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-secondary p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-gray-300 text-gray-700">Monitoring &amp; Alerting Systems</span>
+                        <span class="font-medium dark:text-gray-300 text-gray-700">60%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="skill-bar-fill h-2 rounded-full bg-lime-500 transition-all duration-1000 ease-out"
+                            class="skill-bar-initial" data-width="60%"></div>
+                    </div>
+                </div>
+                <!-- End Skills -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section        bg-[var(--surface-0)] dark:text-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="py-12">
+                <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+
+                <!-- Work -->
+                <section aria-labelledby="work-projects" class="mb-12">
+                    <h3 id="work-projects" class="text-2xl font-bold mb-4">Work</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- (leave your three project cards exactly as-is) -->
+                        <!-- Intune & M365 -->
+                        <div
+                            class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-intune-m365">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Laptop fleet management"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Intune &amp; M365 Deployment</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Joined 700 endpoints to Azure AD &amp;
+                                        deployed Microsoft 365 applications organization-wide.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Intune</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Microsoft
+                                            365</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Helpdesk Button -->
+                        <div
+                            class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-helpdesk-button">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1273&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Support workflow on a workstation"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Helpdesk Button (PowerShell GUI)</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">One-click support intake that emails
+                                        tickets with auto-collected diagnostics.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">PowerShell</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">WinForms</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Outlook/SMTP</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Kiosk Upgrade -->
+                        <div
+                            class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-kiosk-upgrade">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Windows deployment in progress"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Mass Kiosk Windows 10 → 11 Upgrade</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Automated multi-site kiosk upgrades
+                                        using Clonezilla imaging pipeline.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Clonezilla</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Windows
+                                            11</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Home -->
+                <section aria-labelledby="home-projects">
+                    <h3 id="home-projects" class="text-2xl font-bold mb-4">Home</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- (leave your three home cards as-is) -->
+                        <!-- Unraid -->
+                        <div
+                            class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-unraid">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1555617778-02518510b9fa?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Server hardware"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">NAS Monitoring</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Published disk health, network
+                                        throughput, and VM status to MQTT for Home Assistant dashboards.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Linux</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Python</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Home Assistant -->
+                        <div
+                            class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-home-assistant">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Dashboard analytics"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">Home Assistant Dashboard</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">YAML-mode dashboard with auto-entities
+                                        for Unraid sensors and two-way audio via go2rtc.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Home
+                                            Assistant</span>
+                                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">YAML</span>
+                                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">MQTT</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- pfSense -->
+                        <div
+                            class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
+                            <a href="#" class="block" data-modal-target="#modal-content-pfsense">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Network equipment"
+                                    class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
+                                <div class="p-6">
+                                    <h4 class="text-xl font-semibold mb-2">pfSense VLAN &amp; Firewall</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Designed 5-VLAN network segmentation
+                                        with reverse proxy for go2rtc and secure Cloudflare tunnel.</p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">pfSense</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">NGINX</span>
+                                        <span
+                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Cloudflare</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Hidden templates for project detail modal -->
+    <div id="modal-content-intune-m365" class="hidden">
+        <div class="space-y-6">
+            <header class="border-b pb-3">
+                <h3 class="text-2xl font-semibold">Intune & Microsoft 365 Deployment</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Seamless fleet onboarding and productivity suite rollout.
+                </p>
+            </header>
+
+            <section class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Overview</h4>
+                    <p>
+                        Migrated 700 corporate endpoints to hybrid Azure AD join and enrolled in Intune for
+                        centralized device management. Deployed Microsoft 365 applications, configured baseline
+                        security policies, and enabled self-service device provisioning.
+                    </p>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>Hybrid Azure AD join with automatic Intune enrollment</li>
+                        <li>Custom compliance policies & conditional access rules</li>
+                        <li>Deployment of Office apps via Endpoint Manager</li>
+                        <li>User training & post-deployment support</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Stack</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Intune</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Azure AD</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Microsoft 365 Apps</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Endpoint Manager</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="modal-content-helpdesk-button" class="hidden">
+        <div class="space-y-6">
+            <header class="border-b pb-3">
+                <h3 class="text-2xl font-semibold">Helpdesk Button (PowerShell GUI)</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Streamlined ticket creation with system context
+                    baked in.
+                </p>
+            </header>
+
+            <section class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Overview</h4>
+                    <p>
+                        Windows Forms app triggered from Start Menu/Desktop. Captures user input and auto-gathers
+                        device telemetry
+                        (uptime, disk/free space, IP, hardware IDs). Packages artifacts and submits via Outlook.
+                    </p>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>Prefills an email to <code>helpdesk@example.com</code> with attachments/screens</li>
+                        <li>Silent retry & SMTP fallback if Outlook isn’t configured</li>
+                        <li>Versioned build pipeline; signed script; per-user and machine installs</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Stack</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PowerShell</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">WinForms</span>
+                    </div>
+                    <h4 class="font-semibold mt-4">Screenshot</h4>
+                    <picture>
+                        <img loading="lazy"
+                            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                            class="max-w-sm w-full h-auto object-contain cursor-zoom-in" id="img-thumb"
+                            data-fullsrc="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.1.0">
+                    </picture>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div id="modal-content-kiosk-upgrade" class="hidden">
+        <div class="space-y-6">
+            <header class="border-b pb-3">
+                <h3 class="text-2xl font-semibold">Mass Kiosk Windows 10 → 11 Upgrade</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Enterprise-scale OS refresh leveraging image-based deployment.
+                </p>
+            </header>
+
+            <section class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Overview</h4>
+                    <p>
+                        Planned and executed a mass upgrade of kiosk endpoints from Windows 10 to Windows 11 across
+                        multiple
+                        facilities. Standardized gold image captured via Clonezilla with proportional restore
+                        enabled for varying
+                        disk sizes. Deployments were zero-touch once booted into PXE or USB imaging media.
+                    </p>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>Created and validated Win 11 kiosk master image with all required apps and lockdown
+                            settings</li>
+                        <li>Optimized Clonezilla boot scripts for proportional resizing and rapid restore</li>
+                        <li>Integrated pre/post imaging scripts for hostname and network configuration</li>
+                        <li>Automated post-restore health checks before site sign-off</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Stack</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Clonezilla</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">GRUB</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Windows 11</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PXE Boot</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="modal-content-unraid" class="hidden">
+        <div class="space-y-6">
+            <header class="border-b pb-3">
+                <h3 class="text-2xl font-semibold">Unraid NAS Monitoring</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Published disk health, network throughput, and VM status to MQTT for Home Assistant dashboards.
+                </p>
+            </header>
+            <section class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Overview</h4>
+                    <p>Developed a custom integration that pulls real-time Unraid system metrics and publishes them
+                        to MQTT,
+                        enabling detailed Home Assistant dashboards for storage, network, and virtualization
+                        monitoring.</p>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>Disk S.M.A.R.T. health and temperature tracking</li>
+                        <li>Live network throughput per active interface</li>
+                        <li>VM power state, vCPU, memory, and IP address reporting</li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Stack</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Unraid</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">MQTT</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Python</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Home Assistant</span>
+                    </div>
+                    <h4 class="font-semibold mt-4">Links</h4>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li><a href="https://github.com/your-handle/your-project" class="underline" target="_blank"
+                                rel="noopener noreferrer">Project Repository</a></li>
+                        <!-- <li><a href="#" class="underline">Home Assistant Dashboard YAML</a></li> -->
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="modal-content-home-assistant" class="hidden">
+        <div class="space-y-6">
+            <header class="border-b pb-3">
+                <h3 class="text-2xl font-semibold">Home Assistant Dashboard</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    YAML-mode dashboard with Unraid sensors, auto-entities, and go2rtc two-way audio controls.
+                </p>
+            </header>
+            <section class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Overview</h4>
+                    <p>Built a fully customized Home Assistant dashboard in YAML mode. Includes auto-entities to
+                        display
+                        Unraid disk and VM data, network throughput, and live go2rtc streams with two-way audio.</p>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>Dynamic entity filtering for disk sensors</li>
+                        <li>Integrated Unraid MQTT telemetry</li>
+                        <li>WebRTC for low-latency audio/video</li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Stack</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Home Assistant</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">YAML</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">MQTT</span>
+                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">go2rtc</span>
+                    </div>
+                    <!-- <h4 class="font-semibold mt-4">Links</h4>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li><a href="#" class="underline">View YAML config</a></li>
+                        <li><a href="#" class="underline">MQTT sensor list</a></li>
+                    </ul> -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="modal-content-pfsense" class="hidden">
+        <div class="space-y-6">
+            <header class="border-b pb-3">
+                <h3 class="text-2xl font-semibold">pfSense VLAN &amp; Firewall</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Designed 5-VLAN network segmentation with reverse proxy for go2rtc and secure Cloudflare tunnel.
+                </p>
+            </header>
+
+            <section class="grid md:grid-cols-2 gap-6">
+                <!-- Left column -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold">Overview</h4>
+                    <p>
+                        Implemented advanced network segmentation using pfSense to isolate critical services, enhance
+                        security, and enable flexible routing. Integrated reverse proxy and Cloudflare tunneling for
+                        secure, remote-friendly access to internal applications.
+                    </p>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>5 VLANs: main, camera, IoT, DMZ, and Unraid apps</li>
+                        <li>Firewall rules for inter-VLAN traffic control</li>
+                        <li>Reverse proxy for go2rtc WebRTC streams</li>
+                        <li>Cloudflare Tunnel for encrypted remote access</li>
+                    </ul>
+                </div>
+
+                <!-- Right column: Stack + image -->
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">pfSense</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">NGINX</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Cloudflare Tunnel</span>
+                            <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">VLAN</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold">Topology Diagram</h4>
+                        <picture>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                class="max-w-sm w-full h-auto object-contain cursor-zoom-in" id="img-thumb"
+                                data-fullsrc="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.1.0">
+                        </picture>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- /templates -->
+
+    <!-- Resume Section -->
+    <section id="resume" class="section py-16 bg-[var(--surface-1)] dark:text-gray-200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Resume</h2>
+
+            <div class="text-center mb-12">
+                <a href="/files/Resume_Template.pdf" download
+                    class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition duration-300">
+                    Download PDF Resume
+                </a>
+            </div>
+
+            <div class="grid gap-6">
+                <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h4 class="text-xl font-medium dark:text-white text-gray-900">Systems Engineer</h4>
+                        <span class="dark:text-gray-400 text-gray-600">20XX – Present</span>
+                    </div>
+                    <p class="font-medium dark:text-gray-300 text-gray-700 mb-3">Example Organization, City, ST</p>
+                    <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                        <li>Owned endpoint configuration standards and rollout plans across a mixed Windows fleet.</li>
+                        <li>Improved onboarding and compliance through identity and device policy automation.</li>
+                        <li>Wrote small tools and scripts to reduce ticket volume and speed up troubleshooting.</li>
+                    </ul>
+                </div>
+
+                <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h4 class="text-xl font-medium dark:text-white text-gray-900">IT Support Specialist</h4>
+                        <span class="dark:text-gray-400 text-gray-600">20XX – 20XX</span>
+                    </div>
+                    <p class="font-medium dark:text-gray-300 text-gray-700 mb-3">Example Company, City, ST</p>
+                    <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                        <li>Provided deskside and remote support for common hardware/software issues.</li>
+                        <li>Documented repeatable fixes and built checklists to standardize resolutions.</li>
+                        <li>Partnered with stakeholders to ship small improvements quickly.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="section py-16 bg-[var(--surface-0)] dark:text-gray-200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="mt-8 text-center">
+                    <p class="dark:text-gray-300 text-gray-700 mb-4">Connect with me through:</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://www.linkedin.com/in/your-handle/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
+                                class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="https://github.com/your-handle" target="_blank" rel="noopener noreferrer"
+                            class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
+                                class="fab fa-github text-2xl"></i></a>
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer"
+                            class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
+                                class="fab fa-facebook text-2xl"></i></a>
+                    </div>
+                </div>
+
+                <div class="spacer-1rem"></div>
+                <p class="dark:text-gray-300 text-gray-700 mb-4 text-center">Or send me an email.</p>
+
+                <form id="contactForm" class="dark:bg-primary bg-gray-100 p-8 rounded-lg shadow-md">
+                    <div class="mb-6">
+                        <label for="name" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Name</label>
+                        <input type="text" id="name"
+                            class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+                            required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" id="email"
+                            class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+                            required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject"
+                            class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Subject</label>
+                        <input type="text" id="subject"
+                            class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+                            required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message"
+                            class="block dark:text-gray-300 text-gray-700 font-medium mb-2">Message</label>
+                        <textarea id="message" rows="5"
+                            class="w-full px-4 py-2 dark:bg-secondary bg-white border dark:border-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent dark:text-white text-gray-800"
+                            required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition">Send
+                        Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark:bg-black bg-gray-800 dark:text-gray-400 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; <span id="currentYear"></span> Your Name.</p>
+        </div>
+    </footer>
+
+    <!-- Global detail modal (for card details) -->
+    <div id="modal-root" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/60" data-modal-close></div>
+        <div
+            class="fixed z-10 my-10 left-1/2 -translate-x-1/2 top-2 bottom-2 w-[80%] max-w-5xl overflow-auto rounded-2xl bg-white dark:bg-secondary shadow-2xl p-6">
+            <div class="sticky top-3 float-right">
+                <button data-modal-close class="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    aria-label="Close">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="prose dark:prose-invert max-w-none"></div>
+        </div>
+    </div>
+
+    <button id="back-to-top" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[120]
+         w-12 h-12 rounded-full flex items-center justify-center text-xl
+         shadow-lg transition-opacity transition-colors duration-200
+         opacity-0 pointer-events-none
+         bg-black text-white hover:opacity-90
+         dark:bg-white dark:text-black" aria-label="Back to top" title="Back to top" type="button">
+        <i class="fas fa-arrow-up"></i>
+        <span class="sr-only">Back to top</span>
+    </button>
+
+    <!-- Global Image Modal -->
+    <div id="global-image-modal" class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-[9999]">
+        <img id="global-image-modal-img" loading="lazy" src="" alt="Expanded"
+            class="max-w-[95vw] max-h-[95vh] object-contain cursor-zoom-out">
+    </div>
+
+    <!-- Local JS that opens/closes the two‑flap reveal -->
+    <script src="/js/site.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+/* ===============================
+   Sticky Navbar and Active Tab Styling
+   =============================== */
+
+/* Sticky navbar */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Active tab underline */
+.active-tab {
+  border-bottom: 0;
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+  text-decoration-color: currentColor;
+}
+
+/* Active tab tweaks per theme */
+html[data-theme="dark"] .active-tab {
+  border-color: #ffffff;
+}
+html[data-theme="light"] .active-tab {
+  border-color: #000000;
+}
+
+/* ===============================
+   Section Spacing
+   =============================== */
+
+/* Prevent headings from hiding behind sticky navbar */
+.section {
+  scroll-margin-top: 80px;
+}
+
+/* ===============================
+   Theme Variables
+   =============================== */
+
+/* Dark default (base tokens) */
+:root {
+  --surface-0: #0c0c0e;
+  --surface-1: #141416;
+  --secondary: #222222; /* ensure custom secondary var exists */
+
+  /* Optional base page tokens (useful for future refactors) */
+  --bg: #0a0a0a;
+  --text: #e5e7eb;
+  --accent: #111111;
+
+  color-scheme: dark;
+}
+
+/* Light theme override */
+:root[data-theme="light"] {
+  --surface-0: #f7f7f9;
+  --surface-1: #eeeff2;
+
+  --bg: #f8fafc;
+  --text: #1f2937;
+  --accent: #111111;
+
+  color-scheme: light;
+}
+
+/* ===============================
+   Project Card Fix
+   =============================== */
+
+/* Match project cards with skills cards in dark mode */
+.dark #projects .group {
+  background-color: var(--secondary, #222222) !important;
+}
+.dark #projects .group:hover {
+  background-color: #2a2a2a !important; /* slightly lighter hover */
+}
+
+/* Make modal match the rest of dark theme */
+.dark #modal-root > div {
+  background-color: var(--secondary, #222222) !important;
+}
+
+/* Modal backdrop: keep click-to-close behavior but no dim background */
+#modal-root > div[data-modal-close] {
+  background: transparent !important;
+}
+
+/* ===============================
+   Card -> Modal Flip Transition Shell
+   =============================== */
+
+.card-transition-shell {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  overflow: hidden;
+  contain: layout paint style;
+  will-change: left, top, width, height, border-radius;
+  box-sizing: border-box;
+  /* No perspective: we use a stretch-free scaleX flip in JS. */
+  perspective: none;
+}
+
+.card-transition-shell,
+.card-transition-shell * {
+  /* Prevent cloned Tailwind transitions (brightness hover, etc.) from firing inside the shell. */
+  transition: none !important;
+}
+
+.card-transition-inner {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  transform-origin: 50% 50%;
+  overflow: hidden;
+}
+
+.card-transition-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.card-transition-face.back { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-transition-shell {
+    perspective: none;
+  }
+  .card-transition-inner {
+    transform: none !important;
+  }
+}
+
+/* ===============================
+   Custom Color Utilities (replaces Tailwind CDN config)
+   =============================== */
+
+/* Background colors */
+.bg-light {
+  /* Use theme token so body background tracks data-theme (still overridden by dark:bg-dark in dark mode). */
+  background-color: var(--bg, #f8fafc);
+}
+.dark .dark\:bg-dark {
+  background-color: #0a0a0a;
+}
+.dark .dark\:bg-primary {
+  background-color: #111111;
+}
+.dark .dark\:bg-secondary {
+  background-color: #222222;
+}
+
+/* Text colors */
+.text-primary {
+  color: #111111;
+}
+.dark .dark\:text-primary {
+  color: #111111;
+}
+
+/* Hover states */
+.hover\:text-primary:hover {
+  color: #111111;
+}
+.dark .dark\:hover\:text-primary:hover {
+  color: #111111;
+}
+
+/* ===============================
+   Utility Classes (CSP-safe replacements for inline styles)
+   =============================== */
+
+/* ===============================
+   Theme Transition (Optional / View Transitions API)
+   =============================== */
+
+@keyframes theme-circle {
+  0% { clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+  100% { clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+}
+
+/* To-dark: new view circle expands outward from toggle */
+html.theme-transition.to-dark::view-transition-new(root) {
+  animation: theme-circle 0.9s ease-out forwards;
+  mix-blend-mode: normal;
+}
+html.theme-transition.to-dark::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* To-light: old view circle shrinks inward toward toggle, revealing light underneath */
+html.theme-transition.to-light::view-transition-old(root) {
+  animation: theme-circle 0.9s ease-in reverse forwards;
+  mix-blend-mode: normal;
+  z-index: 1;
+}
+html.theme-transition.to-light::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Kill color transitions during the switch so nothing “blinks” mid-snapshot. */
+html.theme-transition,
+html.theme-transition * {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition.to-dark::view-transition-new(root),
+  html.theme-transition.to-light::view-transition-old(root) {
+    animation: none;
+  }
+}
+
+/* Fallback overlay for browsers without View Transitions API */
+.theme-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  background: var(--theme-overlay-bg, #000);
+  clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%));
+}
+
+@keyframes theme-overlay-in {
+  0% { clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+  100% { clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+}
+
+@keyframes theme-overlay-out {
+  0% { clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+  100% { clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%)); }
+}
+
+.theme-overlay.is-covering {
+  animation: theme-overlay-in var(--theme-overlay-ms, 350ms) ease-out forwards;
+}
+
+.theme-overlay.is-revealing {
+  animation: theme-overlay-out var(--theme-overlay-ms, 350ms) ease-in forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-overlay.is-covering,
+  .theme-overlay.is-revealing {
+    animation: none;
+  }
+}
+
+/* Skill bar initial state */
+.skill-bar-initial {
+  width: 0;
+}
+
+/* Spacer utilities */
+.spacer-3rem {
+  height: 3rem;
+}
+
+.spacer-1rem {
+  height: 1rem;
+}
