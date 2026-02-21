@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="fav/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="fav/favicon.png" type="image/png" />
+    <link rel="icon" href="/fav/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/fav/favicon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Systems Engineer | Portfolio Site</title>
-    <meta name="description" content="Professional resume of a Systems Engineer with 16 years of IT experience" />
+    <title>Portfolio Template | Systems Engineer</title>
+    <meta name="description" content="A clean, responsive portfolio template for IT and systems engineering roles." />
     <meta name="color-scheme" content="light dark">
     <meta name="supported-color-schemes" content="light dark">
     <meta name="theme-color" content="#ffffff">
@@ -27,10 +27,10 @@
     </script>
     <!-- Tailwind + Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/tailwind-config.js"></script>
+    <script src="/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-    <link rel="stylesheet" href="style/site.css" />
+    <link rel="stylesheet" href="/style/site.css" />
 </head>
 
 <body class="dark:bg-dark dark:text-gray-200 bg-light text-gray-800 transition-colors duration-300">
@@ -99,31 +99,25 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <img src="img/avatar-tech.svg"
-                        alt="Tech-themed avatar"
+                    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0"
+                        alt="Abstract technology background"
                         class="rounded-full border-4 dark:border-gray-700 border-gray-300 shadow-xl w-64 h-64 object-cover">
                 </div>
                 <div class="md:w-2/3 md:pl-12">
-                    <h1 class="text-4xl font-bold dark:text-white text-gray-900 mb-4">Paul Halon</h1>
+                    <h1 class="text-4xl font-bold dark:text-white text-gray-900 mb-4">Your Name</h1>
                     <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
-                        Computer engineer with 16 years’ experience, specializing in Microsoft Entra identity &amp;
-                        access
-                        management and endpoint solutions.
+                        Systems Engineer focused on identity, endpoint management, and automation.
                     </p>
                     <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
-                        Automation &amp; scripting pro using PowerShell, Python and VBScript. Experienced in SCCM,
-                        privilege-management, Symantec Ghost, Dell KACE, Active Directory, Intune, Azure AD, Exchange,
-                        Visio and Project.
+                        Strong in PowerShell and Python, with hands-on experience across Microsoft 365, Entra ID, Intune,
+                        Active Directory, and modern Windows device lifecycle management.
                     </p>
                     <p class="text-xl dark:text-gray-300 text-gray-700 mb-6">
-                        Proven troubleshooting skills across hardware, software and networks—with remote support for
-                        Windows
-                        (client &amp; server), macOS, Linux and mobile platforms.
+                        Comfortable owning projects end-to-end: discovery, rollout, documentation, and support. Known for
+                        pragmatic troubleshooting and clean operational handoffs.
                     </p>
                     <p class="text-xl dark:text-gray-300 text-gray-700">
-                        Outside work: custom PC builds, ham radio &amp; electronics tinkering, dirt biking with family,
-                        and life
-                        with Aurora, our Border Collie–Pitbull mix.
+                        Outside work: home lab experiments, small automation projects, and learning new tools.
                     </p>
                 </div>
             </div>
@@ -267,7 +261,7 @@
                             class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
                             <a href="#" class="block" data-modal-target="#modal-content-intune-m365">
                                 <img loading="lazy"
-                                    src="https://mssolutions.ca/wp-content/uploads/2023/09/Microsoft-Intune-1024x683.png"
+                                    src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
                                     alt="Laptop fleet management"
                                     class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
                                 <div class="p-6">
@@ -343,15 +337,16 @@
                         <div
                             class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
                             <a href="#" class="block" data-modal-target="#modal-content-unraid">
-                                <img loading="lazy" src="http://hanlonhouse.us/img/unraid.png" alt="Unraid server rack"
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1555617778-02518510b9fa?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Server hardware"
                                     class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
                                 <div class="p-6">
-                                    <h4 class="text-xl font-semibold mb-2">Unraid NAS Monitoring</h4>
+                                    <h4 class="text-xl font-semibold mb-2">NAS Monitoring</h4>
                                     <p class="text-gray-600 dark:text-gray-300">Published disk health, network
                                         throughput, and VM status to MQTT for Home Assistant dashboards.</p>
                                     <div class="mt-4 flex flex-wrap gap-2">
-                                        <span
-                                            class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Unraid</span>
+                                        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Linux</span>
                                         <span
                                             class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MQTT</span>
                                         <span
@@ -365,8 +360,9 @@
                         <div
                             class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
                             <a href="#" class="block" data-modal-target="#modal-content-home-assistant">
-                                <img loading="lazy" src="https://www.home-assistant.io/images/default-social.png"
-                                    alt="Home Assistant dashboard on tablet"
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Dashboard analytics"
                                     class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
                                 <div class="p-6">
                                     <h4 class="text-xl font-semibold mb-2">Home Assistant Dashboard</h4>
@@ -387,8 +383,8 @@
                             class="group bg-white dark:bg-secondary rounded-lg shadow-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-xl transition">
                             <a href="#" class="block" data-modal-target="#modal-content-pfsense">
                                 <img loading="lazy"
-                                    src="https://blog.domotz.com/wp-content/uploads/2023/01/pfsense-blog-header.jpg"
-                                    alt="pfSense firewall device"
+                                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                    alt="Network equipment"
                                     class="w-full h-48 object-cover filter brightness-90 group-hover:brightness-110 transition">
                                 <div class="p-6">
                                     <h4 class="text-xl font-semibold mb-2">pfSense VLAN &amp; Firewall</h4>
@@ -469,7 +465,7 @@
                         (uptime, disk/free space, IP, hardware IDs). Packages artifacts and submits via Outlook.
                     </p>
                     <ul class="list-disc pl-5 text-sm">
-                        <li>Prefills email to <code>tickets@nh-cc.org</code> with attachments/screens</li>
+                        <li>Prefills an email to <code>helpdesk@example.com</code> with attachments/screens</li>
                         <li>Silent retry & SMTP fallback if Outlook isn’t configured</li>
                         <li>Versioned build pipeline; signed script; per-user and machine installs</li>
                     </ul>
@@ -483,9 +479,10 @@
                     </div>
                     <h4 class="font-semibold mt-4">Screenshot</h4>
                     <picture>
-                        <img loading="lazy" src="img/helpdesk_preview.png"
+                        <img loading="lazy"
+                            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
                             class="max-w-sm w-full h-auto object-contain cursor-zoom-in" id="img-thumb"
-                            data-fullsrc="img/helpdesk_preview.png">
+                            data-fullsrc="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.1.0">
                     </picture>
                     </a>
                 </div>
@@ -493,47 +490,6 @@
         </div>
     </div>
 
-
-    <div id="modal-content-kiosk-upgrade" class="hidden">
-        <div class="space-y-6">
-            <header class="border-b pb-3">
-                <h3 class="text-2xl font-semibold">Mass Kiosk Windows 10 → 11 Upgrade</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Enterprise-scale OS refresh leveraging image-based deployment.
-                </p>
-            </header>
-
-            <section class="grid md:grid-cols-2 gap-6">
-                <div class="space-y-3">
-                    <h4 class="font-semibold">Overview</h4>
-                    <p>
-                        Planned and executed a mass upgrade of kiosk endpoints from Windows 10 to Windows 11 across
-                        multiple
-                        facilities. Standardized gold image captured via Clonezilla with proportional restore
-                        enabled for varying
-                        disk sizes. Deployments were zero-touch once booted into PXE or USB imaging media.
-                    </p>
-                    <ul class="list-disc pl-5 text-sm">
-                        <li>Created and validated Win 11 kiosk master image with all required apps and lockdown
-                            settings</li>
-                        <li>Optimized Clonezilla boot scripts for proportional resizing and rapid restore</li>
-                        <li>Integrated pre/post imaging scripts for hostname and network configuration</li>
-                        <li>Automated post-restore health checks before site sign-off</li>
-                    </ul>
-                </div>
-
-                <div class="space-y-3">
-                    <h4 class="font-semibold">Stack</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Clonezilla</span>
-                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">GRUB</span>
-                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Windows 11</span>
-                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">PXE Boot</span>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
 
     <div id="modal-content-kiosk-upgrade" class="hidden">
         <div class="space-y-6">
@@ -607,9 +563,8 @@
                     </div>
                     <h4 class="font-semibold mt-4">Links</h4>
                     <ul class="list-disc pl-5 text-sm">
-                        <li><a href="https://github.com/B0st0wn/hass-unraid" class="underline"
-                                target="_blank">Integration GitHub
-                                Repo</a></li>
+                        <li><a href="https://github.com/your-handle/your-project" class="underline" target="_blank"
+                                rel="noopener noreferrer">Project Repository</a></li>
                         <!-- <li><a href="#" class="underline">Home Assistant Dashboard YAML</a></li> -->
                     </ul>
                 </div>
@@ -696,9 +651,10 @@
                     <div>
                         <h4 class="font-semibold">Topology Diagram</h4>
                         <picture>
-                            <img loading="lazy" src="img/pfsense-topology.png"
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
                                 class="max-w-sm w-full h-auto object-contain cursor-zoom-in" id="img-thumb"
-                                data-fullsrc="img/pfsense-topology.png">
+                                data-fullsrc="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.1.0">
                         </picture>
                         </a>
                     </div>
@@ -711,161 +667,42 @@
     <!-- Resume Section -->
     <section id="resume" class="section py-16 bg-[var(--surface-1)] dark:text-gray-200">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Professional Resume</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white text-gray-900">Resume</h2>
 
-            <!-- Work Experience -->
-            <div>
-                <!--Resume Download-->
-                <div class="text-center mb-12">
-                    <a href="files/Paul_Hanlon_Resume.pdf" download
-                        class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition duration-300">
-                        Download PDF Resume
-                    </a>
+            <div class="text-center mb-12">
+                <a href="/files/Resume.pdf" download
+                    class="border dark:border-gray-600 border-gray-300 dark:text-white text-black bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition duration-300">
+                    Download PDF Resume
+                </a>
+            </div>
+
+            <div class="grid gap-6">
+                <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h4 class="text-xl font-medium dark:text-white text-gray-900">Systems Engineer</h4>
+                        <span class="dark:text-gray-400 text-gray-600">20XX – Present</span>
+                    </div>
+                    <p class="font-medium dark:text-gray-300 text-gray-700 mb-3">Example Organization, City, ST</p>
+                    <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                        <li>Owned endpoint configuration standards and rollout plans across a mixed Windows fleet.</li>
+                        <li>Improved onboarding and compliance through identity and device policy automation.</li>
+                        <li>Wrote small tools and scripts to reduce ticket volume and speed up troubleshooting.</li>
+                    </ul>
                 </div>
-                <!-- <h3
-          class="text-2xl font-semibold mb-6 pb-2 border-b dark:border-gray-700 border-gray-300 dark:text-white text-gray-900">
-          Work Experience
-        </h3> -->
-                <div class="space-y-3">
-                    <!-- Current Job -->
-                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Endpoint Management Engineer
-                            </h4>
-                            <span class="dark:text-gray-400 text-gray-600">2023 – Present</span>
-                        </div>
-                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
-                            Catholic Charities New Hampshire, Manchester, NH
-                        </p>
-                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
-                            <li>Administer hybrid Azure AD join and Intune MDM enrollment across all supported devices
-                            </li>
-                            <li>Deploy and maintain automated support tools, including a custom PowerShell-based
-                                Helpdesk Button with Outlook integration</li>
-                            <li>Replaced legacy email-based support with a structured ticketing system to streamline IT
-                                workflows</li>
-                            <li>Create, update, and troubleshoot Group Policy Objects for security, software
-                                configuration, and user environment management</li>
-                            <li>Manage browser settings and controls through GPO for standardization and compliance</li>
-                            <li>Develop PowerShell scripts for automation, diagnostics, and policy enforcement</li>
-                            <li>Support identity, access, and device compliance initiatives through Azure AD and Intune
-                                policies</li>
-                            <li>Troubleshoot and resolve advanced system administration issues related to enrollment,
-                                policy application, and authentication</li>
-                        </ul>
-                    </div>
 
-                    <!-- Enterprise Engineering Technician -->
-                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Enterprise Engineering
-                                Technician</h4>
-                            <span class="dark:text-gray-400 text-gray-600">2022 – 2023</span>
-                        </div>
-                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
-                            State of New Hampshire, Concord, NH
-                        </p>
-                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
-                            <li>Troubleshoot and resolve desktop-related hardware and software issues, documenting
-                                solutions for future reference</li>
-                            <li>Assemble, configure, and install computer hardware, software, and peripherals</li>
-                            <li>Plan and execute large-scale desktop computer moves, ensuring internal checks and
-                                controls are completed</li>
-                            <li>Maintain accurate inventory and floor plans of desktop equipment in assigned locations
-                            </li>
-                            <li>Collaborate with state agencies and vendors to address computer hardware and software
-                                problems, including warranty services</li>
-                            <li>Provide technical support and training to departmental staff and end-users on computer
-                                hardware, software, and peripherals, ensuring compliance with standards</li>
-                            <li>Evaluate and recommend network and desktop hardware and software acquisitions</li>
-                            <li>Monitor help desk tickets, assigning and resolving issues or delegating to appropriate
-                                technicians</li>
-                        </ul>
+                <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h4 class="text-xl font-medium dark:text-white text-gray-900">IT Support Specialist</h4>
+                        <span class="dark:text-gray-400 text-gray-600">20XX – 20XX</span>
                     </div>
-
-                    <!-- Information Technology Administrator -->
-                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Information Technology
-                                Administrator</h4>
-                            <span class="dark:text-gray-400 text-gray-600">2018 – 2021</span>
-                        </div>
-                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
-                            Brooks Automation, Chelmsford, MA
-                        </p>
-                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
-                            <li>Manage Active Directory functions such as password resets, user management, and
-                                permissions</li>
-                            <li>Use Dell KACE to image laptops and desktops for users</li>
-                            <li>Provide deskside and phone support through Telax and remote support using Dame
-                                Ware/Teamviewer</li>
-                            <li>Write automation scripts for imaging process</li>
-                            <li>Support large-scale manufacturing floor</li>
-                            <li>Map network drives and manage permissions</li>
-                            <li>Create and support XP VMs using VMware to run legacy software in a quarantined
-                                environment</li>
-                            <li>Large scale hardware refresh/windows 10 deployment/upgrade</li>
-                        </ul>
-                    </div>
-
-                    <!-- Computer Repair Escalation Technician -->
-                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Repair Escalation
-                                Technician</h4>
-                            <span class="dark:text-gray-400 text-gray-600">2012 – 2018</span>
-                        </div>
-                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
-                            PlumChoice Inc., Lowell, MA
-                        </p>
-                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
-                            <li>Provide phone support to end-users in a call center environment</li>
-                            <li>Support remote users using Bomgar software</li>
-                            <li>Work one-on-one with consumers and retail management to resolve technical issues</li>
-                            <li>Handle retention and consumer relations for end-users</li>
-                            <li>Collaborate with tier 2 technicians to resolve complex issues</li>
-                            <li>Conduct diagnostic tests and assist with sales related to PC issues</li>
-                        </ul>
-                    </div>
-
-                    <!-- Computer Technician (2011–2012) -->
-                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Technician</h4>
-                            <span class="dark:text-gray-400 text-gray-600">2011 – 2012</span>
-                        </div>
-                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
-                            Nerologica Inc., Danvers, MA
-                        </p>
-                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
-                            <li>Active Directory: Perform password resets and manage user accounts</li>
-                            <li>Image laptops and desktops for users</li>
-                            <li>Provide deskside and phone support to assist users with software installation,
-                                troubleshooting, network connection, and email setup</li>
-                        </ul>
-                    </div>
-
-                    <!-- Computer Technician (2010–2011) -->
-                    <div class="dark:bg-secondary bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                            <h4 class="text-xl font-medium dark:text-white text-gray-900">Computer Technician</h4>
-                            <span class="dark:text-gray-400 text-gray-600">2010 – 2011</span>
-                        </div>
-                        <p class="font-medium dark:text-gray-300 text-gray-700 mb-4">
-                            University of Massachusetts Lowell
-                        </p>
-                        <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
-                            <li>Active Directory: Perform password resets and manage user accounts</li>
-                            <li>Image laptops and desktops for users</li>
-                            <li>Provide deskside and phone support to assist users with software installation,
-                                troubleshooting, network connection, and email setup</li>
-                            <li>Assist with class login and schedule issues</li>
-                        </ul>
-                    </div>
+                    <p class="font-medium dark:text-gray-300 text-gray-700 mb-3">Example Company, City, ST</p>
+                    <ul class="list-disc pl-5 space-y-2 dark:text-gray-300 text-gray-700">
+                        <li>Provided deskside and remote support for common hardware/software issues.</li>
+                        <li>Documented repeatable fixes and built checklists to standardize resolutions.</li>
+                        <li>Partnered with stakeholders to ship small improvements quickly.</li>
+                    </ul>
                 </div>
             </div>
-            <div class="spacer-3rem"></div>
-
         </div>
     </section>
 
@@ -878,14 +715,14 @@
                 <div class="mt-8 text-center">
                     <p class="dark:text-gray-300 text-gray-700 mb-4">Connect with me through:</p>
                     <div class="flex justify-center space-x-6">
-                        <a href="https://www.linkedin.com/in/paul-hanlon-11863a1a5/" target="_blank"
+                        <a href="https://www.linkedin.com/in/your-handle/" target="_blank"
                             rel="noopener noreferrer"
                             class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
                                 class="fab fa-linkedin text-2xl"></i></a>
-                        <a href="https://github.com/B0st0wn" target="_blank" rel="noopener noreferrer"
+                        <a href="https://github.com/your-handle" target="_blank" rel="noopener noreferrer"
                             class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
                                 class="fab fa-github text-2xl"></i></a>
-                        <a href="https://www.facebook.com/paulfhanlon/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer"
                             class="dark:text-gray-400 text-gray-600 hover:text-primary dark:hover:text-white transition"><i
                                 class="fab fa-facebook text-2xl"></i></a>
                     </div>
@@ -932,7 +769,7 @@
     <!-- Footer -->
     <footer class="dark:bg-black bg-gray-800 dark:text-gray-400 text-gray-300 py-8">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; <span id="currentYear"></span> Hanlon House.</p>
+            <p>&copy; <span id="currentYear"></span> Your Name.</p>
         </div>
     </footer>
 
@@ -968,7 +805,7 @@
     </div>
 
     <!-- Local JS that opens/closes the two‑flap reveal -->
-    <script src="js/site.js" defer></script>
+    <script src="/js/site.js" defer></script>
 </body>
 
 </html>
